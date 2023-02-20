@@ -1,0 +1,195 @@
+@import "../../../styles/settings.scss";
+
+.container {
+  background-color: $prospero-black;
+  color: white;
+
+  .messageBar {
+    height: 40px;
+    border-bottom: 1px solid rgba(233, 232, 232, 0.2);
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 8px;
+
+    .messageBar__left {
+      padding: 8px;
+  
+      p {
+        font-size: 14px;
+      }
+    }
+
+    .messageBar__right {
+      padding: 8px;
+      display: flex;
+  
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .mainBar {
+    height: 100px;
+    display: flex;
+    padding: 0px 16px;
+
+    // Logo section
+
+    .mainBar__logo {
+      flex: 1;
+      display: flex;
+      align-items: center;
+
+      .image{
+        cursor: pointer;
+      }
+    }
+
+    // Search section
+
+    .mainBar__search {
+      flex: 3;
+
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      form {
+
+        input {
+          border: none;
+          height: 40px;
+          padding: 0px 120px 2px 20px;
+          border-radius: 5px 0px 0px 5px;
+        }
+
+        button {
+          border: none;
+          height: 40px;
+          margin: 0px;
+          background-color: $prospero-orange;
+          color: white;
+          border-radius: 0px 5px 5px 0px;
+          transition: background-color 0.4s ease-out;
+          padding: 0px 10px;
+
+          &:hover {
+            background-color: $prospero-light-orange;
+          }
+        }
+      }
+    }
+
+    // Features section
+
+    .mainBar__features {
+      display: flex;
+      justify-content: space-between;
+      flex: 4;
+      margin-left: 40px;
+
+      .icons {
+        height: 100%;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        max-width: 120px;
+
+        .icon {
+          font-size: 40px;
+        }
+
+        .icon__cart {
+          font-size: 40px;
+          color: $prospero-orange;
+          transition: $transition;
+          cursor: pointer;
+
+          &:hover {
+            color: $prospero-light-orange;
+          }
+        }
+
+        a {
+          text-decoration: none; 
+          color: inherit;
+        }
+
+        p {
+          margin-top: 13px;
+          padding-left: 10px;
+          transition: $transition;
+          cursor: pointer;
+
+          &:hover {
+            color: $prospero-light-orange;
+          }
+        }
+
+        .register {
+          display: flex;
+          flex-direction: column;
+          padding-left: 10px;
+
+          a {
+            text-decoration: none; 
+            color: inherit;
+          }
+
+          span {
+            transition: $transition;
+            cursor: pointer;
+            text-decoration: none; 
+
+            &:hover {
+              color: $prospero-light-orange;
+            }
+          }
+        }
+
+        .cart {
+          display: flex;
+          flex-direction: column;
+          padding-left: 10px;
+
+          span {
+            text-align: center;
+            color: white;
+          }
+
+          .amount {
+            background-color: $light-gray;
+            color: $prospero-black;
+            border-radius: 15px;
+          }
+        }
+      }
+    }
+  }
+
+  .menu__bar {
+    background-color: $prospero-orange;
+    height: 50px;
+    display: flex;
+
+    .menu__dropdown {
+      flex: 1;
+      background-color:$prospero-orange;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .menu__buttons {
+      flex: 3;
+      display: flex;
+      align-items: center;
+
+      span{
+        margin: 0px 20px;
+      }
+    }
+  }
+}
