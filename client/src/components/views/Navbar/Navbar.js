@@ -61,17 +61,23 @@ const Navbar = () => {
             <Link to="/cart">
               <ShoppingCartIcon className={styles.icon__cart}/>
             </Link>
+            <Link to="/cart">
             <div className={styles.cart}>
               <span className={styles.amount}>0</span>
               <span>$0.00</span>
             </div>
+            </Link>
           </div>
         </div>
       </div>
 
+      <div className={styles.mobileSearch}>
+        <SearchForm />
+      </div>
+
       <div className={styles.menu__bar}>
         <div className={styles.menu__dropdown}>
-          ASD
+          MENU
         </div>
         <div className={styles.menu__buttons}>
           <span>FLAT 50% OFF</span>
