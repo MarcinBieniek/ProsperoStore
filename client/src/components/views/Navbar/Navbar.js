@@ -33,6 +33,7 @@ const Navbar = () => {
         <div className={styles.mainBar__search}>
           <SearchForm />
         </div>
+        
         <div className={styles.mainBar__features}>
           <div className={styles.icons}>
             <PublishedWithChangesIcon className={styles.icon}/>
@@ -69,6 +70,7 @@ const Navbar = () => {
             </Link>
           </div>
         </div>
+
       </div>
 
       <div className={styles.mobileSearch}>
@@ -80,10 +82,18 @@ const Navbar = () => {
           MENU
         </div>
         <div className={styles.menu__buttons}>
-          <span>FLAT 50% OFF</span>
-          <span>20% OFF</span>
-          <span>UP TO 45% OFF</span>
-          <span>DISCOUNT</span>
+          <Link to="/sale">
+            <span>FLAT 50% OFF</span>
+          </Link>
+          <Link to="/sale">
+            <span>20% OFF</span>
+          </Link>
+          <Link to="/sale">
+            <span>UP TO 45% OFF</span>
+          </Link>
+          <Link to="/sale">
+            <span>DISCOUNT</span>
+          </Link>
         </div>
       </div>
     </div>
