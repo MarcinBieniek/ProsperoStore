@@ -1,4 +1,5 @@
 //selectors
+export const allProducts = state => state.products;
 
 // actions
 const createActionName = actionName => `app/posts/${actionName}`;

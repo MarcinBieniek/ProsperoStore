@@ -1,9 +1,10 @@
-import styles from './Favourite.module.scss'
+import styles from './Favourite.module.scss';
 
 const Favourite = () => {
+
   return (
     <div>
-      
+      Favourite
     </div>
   )
 }

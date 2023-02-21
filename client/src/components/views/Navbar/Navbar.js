@@ -3,10 +3,11 @@ import PublishedWithChangesIcon from '@mui/icons-material/PublishedWithChanges';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import SearchIcon from '@mui/icons-material/Search';
 import { Link } from 'react-router-dom';
+import SearchForm from '../../features/SearchForm/SearchForm';
 
 const Navbar = () => {
+
   return (
     <div className={styles.container}>
 
@@ -30,14 +31,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className={styles.mainBar__search}>
-          <form>
-            <input 
-              type="text" 
-              placeholder="Search product here..." 
-              name="search" 
-            />
-            <button type="submit"><SearchIcon /></button>
-          </form>
+          <SearchForm />
         </div>
         <div className={styles.mainBar__features}>
           <div className={styles.icons}>

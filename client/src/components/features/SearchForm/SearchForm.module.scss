@@ -1,0 +1,33 @@
+@import "../../../styles/settings.scss";
+
+.container {
+  height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  form {
+
+    input {
+      border: none;
+      height: 40px;
+      padding: 0px 120px 2px 20px;
+      border-radius: 5px 0px 0px 5px;
+    }
+
+    button {
+      border: none;
+      height: 40px;
+      margin: 0px;
+      background-color: $prospero-orange;
+      color: white;
+      border-radius: 0px 5px 5px 0px;
+      transition: background-color 0.4s ease-out;
+      padding: 0px 10px;
+
+      &:hover {
+        background-color: $prospero-light-orange;
+      }
+    }
+  }
+}

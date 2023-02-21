@@ -50,36 +50,10 @@
 
     .mainBar__search {
       flex: 3;
-
       height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-
-      form {
-
-        input {
-          border: none;
-          height: 40px;
-          padding: 0px 120px 2px 20px;
-          border-radius: 5px 0px 0px 5px;
-        }
-
-        button {
-          border: none;
-          height: 40px;
-          margin: 0px;
-          background-color: $prospero-orange;
-          color: white;
-          border-radius: 0px 5px 5px 0px;
-          transition: background-color 0.4s ease-out;
-          padding: 0px 10px;
-
-          &:hover {
-            background-color: $prospero-light-orange;
-          }
-        }
-      }
     }
 
     // Features section
@@ -192,4 +166,81 @@
       }
     }
   }
+}
+
+// Media queries
+
+@media (max-width: 1200px) {
+  
+  .mainBar__features {
+
+
+    background-color: red;
+    flex: 4;
+    margin: 0px;
+
+    .icons {
+      height: 100%;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      max-width: 120px;
+
+      .icon {
+        font-size: 40px;
+      }
+
+      .icon__cart {
+        font-size: 40px;
+        color: $prospero-orange;
+        transition: $transition;
+        cursor: pointer;
+
+        &:hover {
+          color: $prospero-light-orange;
+        }
+      }
+
+      a {
+        text-decoration: none; 
+        color: inherit;
+      }
+
+      p {
+        display: none !important;
+
+        &:hover {
+          color: $prospero-light-orange;
+        }
+      }
+
+      .register {
+
+        span {
+          display: none !important; 
+        }
+      }
+
+      .cart {
+        display: flex;
+        flex-direction: column;
+        padding-left: 10px;
+
+        span {
+          text-align: center;
+          color: white;
+        }
+
+        .amount {
+          background-color: $light-gray;
+          color: $prospero-black;
+          border-radius: 15px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1008px) {
+  /* … */
 }

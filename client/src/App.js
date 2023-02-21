@@ -8,7 +8,8 @@ import Register from './components/pages/Register/Register';
 import Login from './components/pages/Login/Login';
 import Navbar from './components/views/Navbar/Navbar'
 import Favourite from './components/pages/Favourite/Favourite';
-import CompareProducts from './components/pages/CompareProducts/CompareProducts'
+import CompareProducts from './components/pages/CompareProducts/CompareProducts';
+import SearchResult from './components/pages/SearchResult/SearchResult';
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/favourite" element={<Favourite />} />
         <Route path="/compare" element={<CompareProducts />} />
+        <Route path="/search" element={<SearchResult />} />
       </Routes>
     </BrowserRouter>
   );
