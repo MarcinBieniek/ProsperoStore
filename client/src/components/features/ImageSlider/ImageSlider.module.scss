@@ -1,0 +1,57 @@
+@import "../../../styles/settings.scss";
+
+/* Slideshow */
+
+.slideshow {
+  margin: 0 auto;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+
+  .slideshowSlider {
+    white-space: nowrap;
+    transition: ease 1000ms;
+
+    .slide {
+      display: inline-block;
+      height: 350px;
+      width: 100%;
+      border-radius: 15px;
+      position: relative;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; 
+        border-radius: 15px; 
+      }
+
+      .info {
+        position: absolute;
+        top: 60%;
+        background-color:  rgba(0,0,0,0.4);
+        width: 100%;
+        padding: 15px 20px;
+
+        h1 {
+          color: white;
+          font-size: 24px;
+        }
+
+        button {
+          cursor: pointer;
+          border: none;
+          background-color: $prospero-orange;
+          color: white;
+          border-radius: 5px;
+          padding: 10px 20px;
+          margin-top: 5px;
+        }
+      }
+
+      
+    }
+  }
+}
+
+

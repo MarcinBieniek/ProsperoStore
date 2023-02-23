@@ -3,10 +3,9 @@
 // bootstrap
 
 .container{
-  margin: 50px 0px;
+  padding: 0px 50px;
 
   .slider {
-    background-color: green;
     height: 350px;
     margin: 10px 0px;
   }
@@ -14,7 +13,6 @@
   .categories {
     .categories__row {
       .category {
-        background-color: orange;
         margin: 10px 0px;
         height: 165px;
         border-radius: 15px;
@@ -57,7 +55,7 @@
             background-color: $prospero-orange;
             color: white;
             border-radius: 5px;
-            padding: 5px 10px;
+            padding: 5px 20px;
             margin-top: 5px;
 
             &:hover {
