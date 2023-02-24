@@ -308,6 +308,14 @@
 
 }
 
+@media (max-width: 767px) {
+  .container {
+    .mainBar {
+      padding: 0px 15px;
+    }
+  }
+}
+
 @media (max-width: 460px) {
   
   .container {

@@ -4,6 +4,7 @@
 
 .container{
   padding: 0px 50px;
+  margin-bottom: 50px;
 
   .slider {
     height: 350px;
@@ -31,7 +32,7 @@
           color: white;
           z-index: 1;
           top: 25%;
-          left: 50px;
+          left: 25px;
 
           .paragraph {
             font-size: 12px;
@@ -77,3 +78,10 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .container{
+    padding: 0px 5px;
+  }
+}
+

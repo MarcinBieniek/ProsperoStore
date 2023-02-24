@@ -1,0 +1,81 @@
+@import "../../../styles/settings.scss";
+
+.container {
+  background-color: $background-gray;
+  padding: 30px 50px;
+  
+  .feature {
+    margin: 10px 0px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .feature__icons {
+      .icon {
+        width: 55px;
+        height: 60px;
+      }
+    }
+
+    .feature__desc {
+      max-width: 220px;
+      margin-left: 10px;
+
+      h1 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      span {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+// media queries
+
+@media (max-width: 767px) {
+  .container {
+    padding: 0px 10px;
+    .feature {
+      margin: 0px 0px;
+      .feature__icons {
+        .icon {
+          width: 45px;
+          height: 40px;
+        }
+      }
+  
+      .feature__desc {
+        max-width: 220px;
+        margin-left: 10px;
+  
+        h1 {
+          font-size: 16px;
+          margin: 0px;
+        }
+  
+        span {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+// media queries
+
+@media (max-width: 460px) {
+  .container {
+    .feature {  
+      margin: 0px 0px;
+      .feature__desc {  
+        span {
+          display: none;
+        }
+      }
+    }
+  }
+}

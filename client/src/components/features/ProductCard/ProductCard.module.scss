@@ -1,0 +1,91 @@
+@import "../../../styles/settings.scss";
+
+.product{
+  background-color: white;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 31px -14px rgba(66, 68, 90, 1);
+
+  .widgets {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+
+    .icons {
+      .icon {
+        margin-right: 5px;
+      }
+    }
+
+    .info {
+      color: white;
+
+      .sale {
+        background-color: $prospero-red;
+        padding: 5px;
+      }
+
+      .top {
+        background-color: $prospero-green;
+        padding: 5px;
+        margin-left: 5px;
+      }
+    }
+  }
+  
+
+  img {
+    width: 100%;
+  }
+
+  p {
+    color: $prospero-orange;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  .stars {
+
+    .star {
+      height: 15px;
+      width: 15px;
+    }
+
+    span {
+      font-size: 14px;
+    }
+  }
+
+  .price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+      margin-top: 17px;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      background-color: $prospero-orange;
+      color: white;
+      border-radius: 5px;
+      padding: 5px 10px;
+      margin-top: 5px;
+
+      &:hover {
+        background-color: $prospero-light-orange;
+      }
+
+      .cart__icon {
+        height: 20px;
+        width: 20px;
+        margin-left: 10px;
+      }
+    }
+  }
+}
