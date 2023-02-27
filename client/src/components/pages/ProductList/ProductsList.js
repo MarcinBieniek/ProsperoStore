@@ -1,12 +1,8 @@
 import Col from 'react-bootstrap/esm/Col';
 import Row from 'react-bootstrap/esm/Row';
 import styles from './ProductList.module.scss';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import StarIcon from '@mui/icons-material/Star';
-import PublishedWithChangesIcon from '@mui/icons-material/PublishedWithChanges';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import ProductCard from '../../features/ProductCard/ProductCard';
-
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
 
 const ProductList = () => {
   return (
@@ -27,7 +23,10 @@ const ProductList = () => {
           <Row>
             <Col>    
               <div className={styles.filters}>
-                <span>Category > All products</span>
+                <Breadcrumb className={styles.breadcrumb}>
+                  <Breadcrumb.Item href="/products/garage-door">Garage Doors</Breadcrumb.Item>
+                  <Breadcrumb.Item active>Products</Breadcrumb.Item>
+                </Breadcrumb>
                 <div className={styles.filter}>
                   <span className={styles.filter_text}>Sort: </span>
                   <select className={styles.select}>

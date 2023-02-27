@@ -1,11 +1,11 @@
-import styles from './CategoriesSection.module.scss';
+import styles from './HeroSection.module.scss';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { motion } from 'framer-motion';
 import ImageSlider from '../../features/ImageSlider/ImageSlider';
 import { Link } from 'react-router-dom';
 
-const CategoriesSection = () => {
+const HeroSection = () => {
   return (
       <Row className={styles.container}>
         <Col md={6} >
@@ -123,4 +123,4 @@ const CategoriesSection = () => {
   )
 }
 
-export default CategoriesSection
+export default HeroSection

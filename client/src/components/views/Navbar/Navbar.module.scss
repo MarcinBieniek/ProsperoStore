@@ -3,14 +3,12 @@
 .container {
   background-color: $prospero-black;
   color: white;
-  margin-bottom: 40px;
 
   .messageBar {
     height: 40px;
     border-bottom: 1px solid rgba(233, 232, 232, 0.2);
     display: flex;
     justify-content: space-between;
-    padding: 0px 8px;
 
     .messageBar__left {
       padding: 8px;
@@ -23,7 +21,7 @@
 
     .messageBar__right {
       padding: 8px;
-      padding-right: 44px;
+      padding-right: 60px;
       display: flex;
   
       p {
