@@ -1,0 +1,29 @@
+@import "../../../styles/settings.scss";
+
+.quantity {
+  display: flex;
+
+  .counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0px 0px 10px;
+    border: 0.5px solid $strong-gray;
+    border-radius: 15px;
+    width: 100px;
+    
+    span {
+      font-size: 20px;
+      padding: 0px 5px;
+    }
+
+    .icon {
+      height: 25px;
+      width: 25px;
+      margin: 0px 5px;
+      color: $prospero-orange
+    }
+  }
+}
+
+

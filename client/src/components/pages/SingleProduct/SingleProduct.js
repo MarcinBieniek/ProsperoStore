@@ -7,8 +7,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import PublishedWithChangesIcon from '@mui/icons-material/PublishedWithChanges';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import EmailIcon from '@mui/icons-material/Email';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
+import Quantity from '../../common/Quantity/Quantity';
 
 const SingleProduct = () => {
   return (
@@ -73,13 +72,10 @@ const SingleProduct = () => {
                     /> 
                   </button>
               </div>
-              <div className={styles.number}>
+
+              <div className={styles.quantity}>
                 <h2>Quantity:</h2>
-                <div className={styles.numberCounter}>
-                  <RemoveIcon className={styles.icon}/>
-                    <span>1</span>
-                  <AddIcon className={styles.icon}/>
-                </div>
+                <Quantity />
               </div>
               
             </div>
