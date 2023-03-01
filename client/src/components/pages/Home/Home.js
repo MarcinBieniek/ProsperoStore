@@ -9,7 +9,6 @@ const Home = () => {
       <HeroSection />
       <Features />
       <ProductsList />
-      footer
     </Container>
   )
 }

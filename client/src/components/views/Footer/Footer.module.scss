@@ -1,0 +1,84 @@
+@import "../../../styles/settings.scss";
+
+.container {
+  background-color: $prospero-black;
+  color: white;
+
+  .footer {
+    padding: 20px 75px;
+
+    .contact {
+      padding: 10px;
+
+      h1 {
+        font-size: 30px;
+        color: $prospero-orange;
+      }
+
+      .address {
+        display: flex;
+        
+        .icon {
+          color: $prospero-orange;
+          height: 20px;
+          margin-right: 10px;
+        }
+      }
+
+      .phone {
+        display: flex;
+        margin-bottom: 14px;
+        
+        .icon {
+          color: $prospero-orange;
+          height: 20px;
+          margin-right: 10px;
+        }
+      }
+
+      .email {
+        display: flex;
+        
+        .icon {
+          color: $prospero-orange;
+          height: 20px;
+          margin-right: 10px;
+        }
+      }
+
+      .socialmedia {
+        display: flex;
+        .icon {
+          margin-right: 10px;
+          color: $prospero-orange;
+        }
+      }
+    }
+
+    .info {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 10px;
+
+      h1 {
+        font-size: 30px;
+        color: $prospero-orange;
+      }
+
+      .menu {
+        margin-right: 100px;
+      }
+    }
+
+    .payment {
+      padding: 10px; 
+
+      h1 {
+        font-size: 30px;
+        color: $prospero-orange;
+      }
+    }
+  }
+}
+

@@ -11,6 +11,7 @@ import Favourite from './components/pages/Favourite/Favourite';
 import CompareProducts from './components/pages/CompareProducts/CompareProducts';
 import SearchResult from './components/pages/SearchResult/SearchResult';
 import SpecialOffer from './components/pages/SpecialOffer/SpecialOffer';
+import Footer from './components/views/Footer/Footer';
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/search" element={<SearchResult />} />
         <Route path="/sale" element={<SpecialOffer />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

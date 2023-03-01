@@ -8,10 +8,11 @@ import PublishedWithChangesIcon from '@mui/icons-material/PublishedWithChanges';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import EmailIcon from '@mui/icons-material/Email';
 import Quantity from '../../common/Quantity/Quantity';
+import { Container } from 'react-bootstrap';
 
 const SingleProduct = () => {
   return (
-    <div className={styles.container}>
+    <Container fluid className={styles.container}>
       <Row>
         <Breadcrumb className={styles.breadcrumb}>
           <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
@@ -115,7 +116,7 @@ const SingleProduct = () => {
           </Col>
         </Row>
       </div>
-    </div>
+    </Container>
   )
 }
 
