@@ -12,13 +12,36 @@ const ProductList = (props) => {
   const products = useSelector(allProducts);
 
   const [selectedProducts, setSelectedProducts] = useState(products)
-  console.log('selectedproducts', selectedProducts)
 
   const filterCategory = (categoryItem) => {
     const result = products.filter((currentCategory) => {
       return currentCategory.category === categoryItem;
     });
     setSelectedProducts(result);
+  };
+
+  const compare = (a, b, ascendingOrder) => {
+    if (a < b) {
+      return ascendingOrder ? -1 : 1;
+    }
+    if (a > b) {
+      return ascendingOrder ? 1 : -1;
+    }
+    return 0;
+  }
+
+  const handleChange = (value) => {
+    if((value == "none")){
+      setSelectedProducts(products);
+    } else if ((value === "ascending")){
+      setSelectedProducts((prev) =>
+        [...prev].sort((a, b) => a.price - b.price)
+      );
+    } else {
+      setSelectedProducts((prev) =>
+        [...prev].sort((a, b) => b.price - a.price)
+      );
+    }
   }
     
   return (
@@ -45,11 +68,15 @@ const ProductList = (props) => {
                 </Breadcrumb>
                 <div className={styles.filter}>
                   <span className={styles.filter_text}>Sort: </span>
-                  <select className={styles.select}>
-                    <option className={styles.option} value="newest">Newest</option>
-                    <option className={styles.option} value="asc">Price (asc)</option>
-                    <option className={styles.option} value="desc">Price (desc)</option> 
+
+                  <select 
+                    onChange={(e) => handleChange(e.target.value)}
+                    className={styles.select}>
+                      <option className={styles.option} value="none">Default</option>
+                      <option className={styles.option} value="ascending">Price (asc)</option>
+                      <option className={styles.option} value="descending">Price (desc)</option> 
                   </select> 
+
                 </div>
               </div>      
             </Col>  
