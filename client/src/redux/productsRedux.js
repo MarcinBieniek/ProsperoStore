@@ -1,5 +1,6 @@
 //selectors
-export const allProducts = state => state.products;
+export const allProducts = ({products}) => products;
+export const getProductById = ({ products }, productId) => products.find(product => product.id == productId);
 
 // actions
 const createActionName = actionName => `app/posts/${actionName}`;

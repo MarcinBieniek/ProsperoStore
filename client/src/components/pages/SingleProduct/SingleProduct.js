@@ -9,8 +9,15 @@ import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import EmailIcon from '@mui/icons-material/Email';
 import Quantity from '../../common/Quantity/Quantity';
 import { Container } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { getProductById } from '../../../redux/productsRedux';
 
 const SingleProduct = () => {
+
+  const productId = useParams();
+  const product = useSelector(state => getProductById(state, productId.id))
+
   return (
     <Container fluid className={styles.container}>
       <Row>
@@ -25,7 +32,7 @@ const SingleProduct = () => {
           <Col lg={6}>
             <div className={styles.product__mainImg}>
               <img 
-                src={`${process.env.PUBLIC_URL}/images/colors/unipro-orzech.jpg`}
+                src={`${process.env.PUBLIC_URL}${product.img}`}
                 alt="Main photo"
               />
             </div>
@@ -33,9 +40,9 @@ const SingleProduct = () => {
           </Col>
           <Col lg={6}>
             <div className={styles.product__desc}>
-              <h1>UniPro garage gate</h1>
-              <h3>Producer: Wisniowski</h3>
-              <p>$1111.00 (23% VAT)</p>
+              <h1>{product.title}</h1>
+              <h3>Producer: {product.producer}</h3>
+              <p>${product.price} (23% VAT)</p>
               <div className={styles.size}>
                 <h2 className={styles.size__text}>Select width: </h2>
                 <select className={styles.select}>
