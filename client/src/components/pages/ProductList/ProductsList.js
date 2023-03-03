@@ -6,8 +6,9 @@ import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import { useSelector } from 'react-redux';
 import { allProducts } from '../../../redux/productsRedux';
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-const ProductList = (props) => {
+const ProductList = () => {
 
   const products = useSelector(allProducts);
 
@@ -19,16 +20,6 @@ const ProductList = (props) => {
     });
     setSelectedProducts(result);
   };
-
-  const compare = (a, b, ascendingOrder) => {
-    if (a < b) {
-      return ascendingOrder ? -1 : 1;
-    }
-    if (a > b) {
-      return ascendingOrder ? 1 : -1;
-    }
-    return 0;
-  }
 
   const handleChange = (value) => {
     if((value == "none")){
@@ -85,13 +76,7 @@ const ProductList = (props) => {
             {selectedProducts.map(product => 
               <Col>
                 <ProductCard 
-                  id={product.id}
-                  title={product.title}
-                  category={product.category}
-                  price={product.price}
-                  img={product.img}
-                  sale={product.sale}
-                  top={product.top}
+                  {...product}
                 />
               </Col>
             )}

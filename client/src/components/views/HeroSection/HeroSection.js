@@ -30,7 +30,7 @@ const HeroSection = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
               >
-                <Link to="/products/garage-door">
+                <Link to="/products/sectional-doors">
                   <div className={styles.category}>
                     <img 
                       src={`${process.env.PUBLIC_URL}/images/categories/unipro-category.jpg`} 
@@ -53,7 +53,7 @@ const HeroSection = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
               >
-                <Link to="/products/industrial-gate">
+                <Link to="/products/sectional-doors">
                   <div className={styles.category}>
                     <img 
                       src={`${process.env.PUBLIC_URL}/images/categories/makropro-category.jpg`} 

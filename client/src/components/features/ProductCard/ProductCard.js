@@ -4,8 +4,18 @@ import StarIcon from '@mui/icons-material/Star';
 import PublishedWithChangesIcon from '@mui/icons-material/PublishedWithChanges';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Link } from 'react-router-dom';
+import {useDispatch} from 'react-redux';
+import { addProduct } from '../../../redux/cartRedux';
+import { useState } from 'react';
 
 const ProductCard = (props) => {
+
+  const dispatch = useDispatch();
+  const product = props;
+
+  const handleClick = () => {
+    dispatch(addProduct(props));
+  }
 
   return (
     <div className={styles.product}>  
@@ -45,7 +55,7 @@ const ProductCard = (props) => {
       </Link>
       <div className={styles.price}>
         <p>${props.price}</p>
-        <button>
+        <button onClick={handleClick}>
           Add 
           <ShoppingCartIcon className={styles.cart__icon}/>
         </button>

@@ -1,4 +1,5 @@
 import { createStore, combineReducers } from 'redux';
+import cartReducer from './cartRedux';
 import initialState from './initialState';
 import productsReducer from './productsRedux';
 import searchReducer from './searchRedux';
@@ -6,6 +7,7 @@ import searchReducer from './searchRedux';
 const subreducers = {
   products: productsReducer,
   search: searchReducer,
+  cart: cartReducer,
 }
 
 const reducer = combineReducers(subreducers);

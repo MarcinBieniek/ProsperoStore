@@ -293,6 +293,9 @@ const initialState = {
 
     searchString: '',
 
+    cart: {
+      products: [],
+    },
 
 };  
 
