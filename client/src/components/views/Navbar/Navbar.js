@@ -5,8 +5,27 @@ import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Link } from 'react-router-dom';
 import SearchForm from '../../features/SearchForm/SearchForm';
+import React, { useState, useEffect } from 'react';
+import clsx from 'clsx';
+
 
 const Navbar = () => {
+
+  const [stickyClass, setStickyClass] = useState(false);
+
+  console.log('stickyclass is', stickyClass)
+
+  useEffect(() => {
+    window.addEventListener('scroll', stickNavbar);
+    return () => window.removeEventListener('scroll', stickNavbar)
+  }, []);
+
+  const stickNavbar = () => {
+    if (window !== undefined) {
+      let windowHeight = window.scrollY;
+      windowHeight > 170 ? setStickyClass(true) : setStickyClass('');
+    }
+  };
 
   return (
     <div className={styles.container}>
@@ -20,7 +39,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className={styles.mainBar}>
+      <div className={clsx(styles.mainBar, stickyClass && styles.sticky)}>
         <div className={styles.mainBar__logo}>
           <Link to="/">
             <img 

@@ -6,7 +6,6 @@ import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import { useSelector } from 'react-redux';
 import { allProducts } from '../../../redux/productsRedux';
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
 
 const ProductList = () => {
 

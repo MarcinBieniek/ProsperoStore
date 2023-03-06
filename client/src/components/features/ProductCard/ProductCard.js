@@ -6,14 +6,13 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Link } from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import { addProduct } from '../../../redux/cartRedux';
-import { useState } from 'react';
 
 const ProductCard = (props) => {
 
   const dispatch = useDispatch();
-  const product = props;
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.preventDefault();
     dispatch(addProduct(props));
   }
 

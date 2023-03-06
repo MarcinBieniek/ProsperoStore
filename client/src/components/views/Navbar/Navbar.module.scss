@@ -144,6 +144,18 @@
     }
   }
 
+  .sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $prospero-black;
+    width: 100%;
+    z-index: 2;
+    transition: all 0.2s ease-out;
+  }
+
+  
+
   // Mobile search bar
   .mobileSearch {
     background-color: $prospero-orange;
