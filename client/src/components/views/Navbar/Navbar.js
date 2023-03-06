@@ -8,7 +8,7 @@ import SearchForm from '../../features/SearchForm/SearchForm';
 import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import { useSelector } from 'react-redux';
-import { getAll, getCount, getTotalPrice } from '../../../redux/cartRedux';
+import { getCount, getTotalPrice } from '../../../redux/cartRedux';
 
 const Navbar = () => {
 

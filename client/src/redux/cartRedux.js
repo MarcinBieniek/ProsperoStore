@@ -1,7 +1,7 @@
 // selectors
 export const getAll = ({ cart }) => cart.products;
 export const getCount = ({ cart }) => cart.products.length;
-export const getTotalPrice = ({cart}) => cart.products.reduce((total, item)=>total+(item.price*item.amount),0)
+export const getTotalPrice = ({cart}) => cart.products.reduce((total, item) => total + (item.price*item.amount), 0)
 
 console.log('total price is', getTotalPrice)
 
@@ -23,7 +23,7 @@ const cartReducer = (statePart = [], action ={}) => {
     case ADD_PRODUCT: {
       return {
         ...statePart,
-        products: [...statePart.products, action.payload]
+        products: [...statePart.products.filter(p => p.id !== action.payload.id), action.payload]
       }
     }
     case DELETE_PRODUCT: {
