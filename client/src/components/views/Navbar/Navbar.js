@@ -7,13 +7,15 @@ import { Link } from 'react-router-dom';
 import SearchForm from '../../features/SearchForm/SearchForm';
 import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
-
+import { useSelector } from 'react-redux';
+import { getAll, getCount, getTotalPrice } from '../../../redux/cartRedux';
 
 const Navbar = () => {
 
-  const [stickyClass, setStickyClass] = useState(false);
+  const cartItemsNumber = useSelector(getCount);
+  const totalCartPrice = useSelector(getTotalPrice);
 
-  console.log('stickyclass is', stickyClass)
+  const [stickyClass, setStickyClass] = useState(false);
 
   useEffect(() => {
     window.addEventListener('scroll', stickNavbar);
@@ -83,8 +85,8 @@ const Navbar = () => {
             </Link>
             <Link to="/cart">
             <div className={styles.cart}>
-              <span className={styles.amount}>0</span>
-              <span>$0.00</span>
+              <span className={styles.amount}>{cartItemsNumber}</span>
+              <span>${totalCartPrice}</span>
             </div>
             </Link>
           </div>

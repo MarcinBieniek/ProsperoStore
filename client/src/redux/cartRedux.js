@@ -1,6 +1,9 @@
 // selectors
 export const getAll = ({ cart }) => cart.products;
 export const getCount = ({ cart }) => cart.products.length;
+export const getTotalPrice = ({cart}) => cart.products.reduce((total, item)=>total+(item.price*item.amount),0)
+
+console.log('total price is', getTotalPrice)
 
 // action name creator
 const createActionName = actionName => `app/cart/${actionName}`;
