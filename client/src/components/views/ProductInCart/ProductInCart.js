@@ -1,21 +1,37 @@
 import styles from './ProductInCart.module.scss';
 import DeleteIcon from '@mui/icons-material/Delete';
-import Quantity from '../../common/Quantity/Quantity';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 import { Link } from 'react-router-dom';
-import { deleteProduct } from '../../../redux/cartRedux';
+import { deleteProduct, updateAmount, getAll } from '../../../redux/cartRedux';
 import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 
 const ProductInCart = (props) => {
 
   const dispatch = useDispatch();
   const productId = props.id;
 
-  console.log(productId)
-  console.log('props is', props)
+  const [quantity, setQuantity] = useState(1);
 
   const handleDelete = e => {
     e.preventDefault();
     dispatch(deleteProduct(productId))
+  }
+
+  console.log('COMP - productId is', productId)
+  console.log('COMP - quantity is', quantity)
+
+  const handleQuantity = (type) => {
+    if(type === "dec") {
+      quantity > 1 && setQuantity(quantity - 1)
+    } else {
+      quantity < 10 && setQuantity(quantity + 1)
+    }
+  }
+
+  const updatePrice = () => {
+    dispatch(updateAmount({productId, quantity}))
   }
 
   return (
@@ -41,7 +57,14 @@ const ProductInCart = (props) => {
         </div>
         <div className={styles.quantity}>
           <h2>Quantity:</h2>
-          <Quantity />
+          <div className={styles.counter_div}>
+            <div className={styles.counter}>
+              <RemoveIcon className={styles.icon} onClick={() => handleQuantity("dec")}/>
+                <span>{quantity}</span>
+              <AddIcon className={styles.icon} onClick={() => handleQuantity("inc")}/>
+            </div>
+            <button onClick={() => updatePrice()}>update</button>
+          </div>
         </div>
         <span className={styles.price}>${props.price}</span>
       </div>

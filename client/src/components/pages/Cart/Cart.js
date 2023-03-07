@@ -4,13 +4,13 @@ import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import { Container } from 'react-bootstrap';
 import PercentIcon from '@mui/icons-material/Percent';
 import { useSelector } from 'react-redux';
-import { getAll } from '../../../redux/cartRedux';
+import { getAll, getTotalPrice } from '../../../redux/cartRedux';
 import ProductInCart from '../../views/ProductInCart/ProductInCart';
 
 const Cart = () => {
 
   const products = useSelector(getAll);
-  console.log('products in cart', products);
+  const totalCartPrice = useSelector(getTotalPrice)
 
   return (
     <Container fluid className={styles.container}>
@@ -52,7 +52,7 @@ const Cart = () => {
             </div>
             <div className={styles.finalValue}>
               <h3>Total price</h3>
-              <span>$2222</span>
+              <span>${totalCartPrice}</span>
             </div>
           </div>
         </div>

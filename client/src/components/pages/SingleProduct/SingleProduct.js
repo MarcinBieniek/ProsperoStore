@@ -7,11 +7,12 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import PublishedWithChangesIcon from '@mui/icons-material/PublishedWithChanges';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import EmailIcon from '@mui/icons-material/Email';
-import Quantity from '../../common/Quantity/Quantity';
 import { Container } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getProductById } from '../../../redux/productsRedux';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 
 const SingleProduct = () => {
 
@@ -83,7 +84,11 @@ const SingleProduct = () => {
 
               <div className={styles.quantity}>
                 <h2>Quantity:</h2>
-                <Quantity />
+                <div className={styles.counter}>
+                  <RemoveIcon className={styles.icon} />
+                  <span>1</span>
+                  <AddIcon className={styles.icon} />
+                </div>
               </div>
               
             </div>
