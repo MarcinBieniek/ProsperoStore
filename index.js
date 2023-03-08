@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
 
 // set dotenv
 dotenv.config();
@@ -20,8 +22,14 @@ mongoose
 
 // middleware
 app.use(cors());
-app.use(express.json())
-app.use(express.urlencoded({ extended: false}))
+app.use(express.json());
+app.use(express.urlencoded({ extended: false}));
+app.use(session({ 
+  secret: 'xyz567', 
+  store: MongoStore.create(mongoose.connection),
+  resave: false,
+  saveUninitialized: false,
+}))
 
 // import routes
 const userRoute = require('./routes/user.routes');
