@@ -21,14 +21,24 @@ mongoose
   .catch((err) => {console.log('DB error is', err)});
 
 // middleware
-app.use(cors());
+if(process.env.NODE_ENV !== 'production') {
+  app.use(
+    cors({
+      origin: ['http://localhost:3000'],
+      credentials: true,
+    })
+  );
+}
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 app.use(session({ 
-  secret: 'xyz567', 
+  secret: process.env.SECRET,
   store: MongoStore.create(mongoose.connection),
   resave: false,
   saveUninitialized: false,
+  cookie: {
+    secure: process.env.NODE_ENV == 'production',
+  },
 }))
 
 // import routes
@@ -38,3 +48,5 @@ const authRoute = require('./routes/auth.routes');
 // use routes
 app.use('/api', userRoute);
 app.use('/auth', authRoute);
+
+console.log('env secret is', process.env.SECRET)

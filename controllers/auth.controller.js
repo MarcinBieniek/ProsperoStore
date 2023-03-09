@@ -43,9 +43,18 @@ exports.login = async (req, res) => {
 }
 
 exports.getUser = async (req, res) => {
-  if (req.session.login) {
-    res.send({ login: req.session.login });
-  } else {
-    res.status(401).send({ message: 'Unathorized'})
+  res.send({ login: req.session.login });
+}
+
+exports.logout = async (req, res) => {
+  try {
+      req.session.destroy();
+      return res
+          .status(200)
+          .send({ message: 'Session ended' });
+  } catch (err) {
+      return res
+          .status(500)
+          .send({ message: err.message });
   }
 }
