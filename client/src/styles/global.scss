@@ -8,4 +8,16 @@
     transition: all 1s ease-out;
 }
 
+button {
+  cursor: pointer;
+  border: none;
+  background-color: $prospero-orange;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-top: 5px;
 
+  &:hover {
+    background-color: $prospero-light-orange;
+  }
+}

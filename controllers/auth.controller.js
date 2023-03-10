@@ -4,6 +4,9 @@ const bcrypt = require('bcryptjs');
 exports.register = async (req, res) => {
   try {
     const { login, password, email } = req.body;
+
+    console.log('req.body is', req.body)
+
     if (login && typeof login === 'string' && password && typeof password ==='string' && email && typeof email === 'string'){
       const userWithLogin = await User.findOne({ login });
       if (userWithLogin) {
@@ -12,7 +15,7 @@ exports.register = async (req, res) => {
       const user = await User.create({ login, password: await bcrypt.hash(password, 10), email});
       res.status(201).send({ message: 'User ' + user.login + ' created' })
     } else {
-      res.status(400).send({ message: 'Bad request'})
+      res.status(400).send({ message: 'Bad request man'})
     }
   } catch (err) {
     res.status(500).send({ message: err.message })

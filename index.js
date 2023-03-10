@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
+const path = require('path');
 
 // set dotenv
 dotenv.config();
@@ -16,19 +17,15 @@ app.listen(process.env.PORT || 8000, () => {
 
 // mongoDB connection 
 mongoose
-  .connect(process.env.MONGO_URL)
+  .connect(process.env.MONGO_URL, {
+    useNewUrlParser: true, 
+    useUnifiedTopology: true 
+  })
   .then(() => {console.log('DB connection succesfull')})
   .catch((err) => {console.log('DB error is', err)});
 
 // middleware
-if(process.env.NODE_ENV !== 'production') {
-  app.use(
-    cors({
-      origin: ['http://localhost:3000'],
-      credentials: true,
-    })
-  );
-}
+app.use(cors({origin: "http://localhost:3000"}))
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 app.use(session({ 
@@ -39,7 +36,11 @@ app.use(session({
   cookie: {
     secure: process.env.NODE_ENV == 'production',
   },
-}))
+}));
+
+// access to storage folder
+app.use(express.static(path.join(__dirname, '/client/build')));
+app.use(express.static(path.join(__dirname, '/public')));
 
 // import routes
 const userRoute = require('./routes/user.routes');
@@ -49,4 +50,3 @@ const authRoute = require('./routes/auth.routes');
 app.use('/api', userRoute);
 app.use('/auth', authRoute);
 
-console.log('env secret is', process.env.SECRET)
