@@ -12,8 +12,30 @@ import CompareProducts from './components/pages/CompareProducts/CompareProducts'
 import SearchResult from './components/pages/SearchResult/SearchResult';
 import SpecialOffer from './components/pages/SpecialOffer/SpecialOffer';
 import Footer from './components/views/Footer/Footer';
+import { getUser } from './redux/usersRedux';
+import { useSelector } from 'react-redux';
+import Account from './components/pages/Account/Account';
+import Logout from './components/pages/Logout/Logout';
+import { API_URL } from './config';
+import { useState } from 'react';
 
 const App = () => {
+
+  const user = useSelector(getUser)
+  console.log('local user is', user)
+
+  const options = {
+    method: 'GET',
+    credentials: 'include'
+  };
+
+  fetch(`${API_URL}auth/user`, options)
+    .then((response) => {
+      response.json().then((data => {
+        console.log('session user is', data)
+      }))
+    })
+
   return (
     <BrowserRouter>
       <Navbar />
@@ -24,10 +46,12 @@ const App = () => {
         <Route path="/cart" element={<Cart />} />    
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
         <Route path="/favourite" element={<Favourite />} />
         <Route path="/compare" element={<CompareProducts />} />
         <Route path="/search" element={<SearchResult />} />
         <Route path="/sale" element={<SpecialOffer />} />
+        <Route path="/user/account" element={<Account />} />
       </Routes>
       <Footer />
     </BrowserRouter>

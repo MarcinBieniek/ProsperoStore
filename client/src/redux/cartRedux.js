@@ -27,19 +27,12 @@ const cartReducer = (statePart = [], action = {}) => {
       }
     };
     case UPDATE_AMOUNT: {
-      return {
-        ...statePart,
-        products: statePart.products.map((item) => {
-          console.log('REDUX - item is', item)
-          console.log('REDUX - action payload is', action.payload)
-
-          if(item.id == action.payload.productId) {
-            console.log('REDUX item.amout is', item.amount)
-            item.amount += action.payload.quantity
-          }
-          return item;
-        })
-      }
+      return { ...statePart, 
+        products: statePart.products.map(product => product.id === action.payload.id 
+          ? { ...product, amount: action.payload.quantity} 
+          : product
+        ) 
+      };
     }
     case DELETE_PRODUCT: {
       return {

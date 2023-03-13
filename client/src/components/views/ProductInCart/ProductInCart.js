@@ -5,12 +5,14 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import { Link } from 'react-router-dom';
 import { deleteProduct, updateAmount, getAll } from '../../../redux/cartRedux';
 import { useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const ProductInCart = (props) => {
 
   const dispatch = useDispatch();
   const productId = props.id;
+
+  console.log('product amount', props.amount)
 
   const [quantity, setQuantity] = useState(1);
 
@@ -31,7 +33,7 @@ const ProductInCart = (props) => {
   }
 
   const updatePrice = () => {
-    dispatch(updateAmount({productId, quantity}))
+    dispatch(updateAmount({ quantity: parseInt(quantity), id: productId}))
   }
 
   return (

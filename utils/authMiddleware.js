@@ -1,4 +1,7 @@
 const authMiddleware  = (req, res, next) => {
+
+  (console.log('req session cookie', req.session.login))
+
   if (req.session.login) {
     next();
   } else {

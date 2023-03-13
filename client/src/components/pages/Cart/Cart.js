@@ -10,7 +10,7 @@ import ProductInCart from '../../views/ProductInCart/ProductInCart';
 const Cart = () => {
 
   const products = useSelector(getAll);
-  const totalCartPrice = useSelector(getTotalPrice)
+  const totalCartPrice = useSelector(getTotalPrice);
 
   return (
     <Container fluid className={styles.container}>

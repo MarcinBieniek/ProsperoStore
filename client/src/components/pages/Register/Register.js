@@ -13,7 +13,7 @@ const Register = () => {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState(''); 
-  const [status, setStatus] = useState(null); // null, loading, success, server Error, clientError, statusError
+  const [status, setStatus] = useState(null); // null, loading, success, serverError, clientError, statusError
 
   const handleSubmit = (e) => {
     e.preventDefault();

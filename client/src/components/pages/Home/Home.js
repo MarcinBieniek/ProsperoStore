@@ -4,6 +4,7 @@ import Features from '../../views/Features/Features';
 import ProductsList from '../ProductList/ProductsList';
 
 const Home = () => {
+
   return (
     <Container fluid> 
       <HeroSection />

@@ -3,11 +3,13 @@ import cartReducer from './cartRedux';
 import initialState from './initialState';
 import productsReducer from './productsRedux';
 import searchReducer from './searchRedux';
+import userReducer from './usersRedux';
 
 const subreducers = {
   products: productsReducer,
   search: searchReducer,
   cart: cartReducer,
+  user: userReducer,
 }
 
 const reducer = combineReducers(subreducers);

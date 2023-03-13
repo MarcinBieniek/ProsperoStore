@@ -9,8 +9,11 @@ import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import { useSelector } from 'react-redux';
 import { getCount, getTotalPrice } from '../../../redux/cartRedux';
+import { getUser } from '../../../redux/usersRedux';
 
 const Navbar = () => {
+
+  const user = useSelector(getUser)
 
   const cartItemsNumber = useSelector(getCount);
   const totalCartPrice = useSelector(getTotalPrice);
@@ -69,14 +72,30 @@ const Navbar = () => {
             </Link>
           </div>
           <div className={styles.icons}>
-            <PersonOutlineIcon className={styles.icon}/>
+            <Link to={user ? "/user/account" : "/register" }>
+              <PersonOutlineIcon className={styles.icon}/>
+            </Link>
             <div className={styles.register}>
-              <Link to="/register">
-                <span>Reqister</span>
-              </Link>
-              <Link to="/login">
-                <span>Login</span>
-              </Link>
+              { user 
+              ? 
+                <Link to="/user/account">
+                  <span>Account</span>
+                </Link>
+              :
+                <Link to="/register">
+                  <span>Reqister</span>
+                </Link>
+              }
+              { user
+              ?
+                <Link to="/logout">
+                  <span>Logout</span>
+                </Link>
+              :
+                <Link to="/login">
+                  <span>Login</span>
+                </Link>
+              }
             </div>
           </div>
           <div className={styles.icons}>
