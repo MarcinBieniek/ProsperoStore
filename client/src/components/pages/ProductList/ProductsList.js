@@ -7,11 +7,14 @@ import { useSelector } from 'react-redux';
 import { allProducts } from '../../../redux/productsRedux';
 import { useState } from 'react';
 
+
 const ProductList = () => {
 
   const products = useSelector(allProducts);
+  console.log('products', products)
 
-  const [selectedProducts, setSelectedProducts] = useState(products)
+  const [selectedProducts, setSelectedProducts] = useState('')
+  console.log('selected products', selectedProducts)
 
   const filterCategory = (categoryItem) => {
     const result = products.filter((currentCategory) => {
@@ -24,13 +27,11 @@ const ProductList = () => {
     if((value == "none")){
       setSelectedProducts(products);
     } else if ((value === "ascending")){
-      setSelectedProducts((prev) =>
-        [...prev].sort((a, b) => a.price - b.price)
-      );
+      const lowestPrice = products.sort((el1,el2) => el1.price.localeCompare(el2.price, undefined, {numeric: true}));
+      setSelectedProducts(lowestPrice)
     } else {
-      setSelectedProducts((prev) =>
-        [...prev].sort((a, b) => b.price - a.price)
-      );
+      const higherPrice = products.sort((el1,el2) => el2.price.localeCompare(el1.price, undefined, {numeric: true}));
+      setSelectedProducts(higherPrice)
     }
   }
     
@@ -71,15 +72,33 @@ const ProductList = () => {
               </div>      
             </Col>  
           </Row>  
-          <Row xl={4} lg={3} md={2} sm={1} xs={1}>
-            {selectedProducts.map(product => 
-              <Col>
-                <ProductCard 
-                  {...product}
-                />
-              </Col>
-            )}
-          </Row>
+
+          { selectedProducts ?
+
+            <Row xl={4} lg={3} md={2} sm={1} xs={1}>
+              {selectedProducts.map(product => 
+                <Col>
+                  <ProductCard 
+                    {...product}
+                  />
+                </Col>
+              )}
+            </Row>
+
+            :
+
+            <Row xl={4} lg={3} md={2} sm={1} xs={1}>
+              {products.map(product => 
+                <Col>
+                  <ProductCard 
+                    {...product}
+                  />
+                </Col>
+              )}
+            </Row>
+
+          }
+       
         </Col>
       </Row>    
     </>

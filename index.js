@@ -45,9 +45,9 @@ app.use(session({
   store: MongoStore.create(mongoose.connection),
   resave: false,
   saveUninitialized: false,
-  /*cookie: {
+  cookie: {
     secure: process.env.NODE_ENV == 'production',
-  },*/
+  },
 }));
 
 // access to storage folder
@@ -57,8 +57,10 @@ app.use(express.static(path.join(__dirname, '/public')));
 // import routes
 const userRoute = require('./routes/user.routes');
 const authRoute = require('./routes/auth.routes');
+const productRoute = require('./routes/products.routes');
 
 // use routes
 app.use('/api', userRoute);
 app.use('/auth', authRoute);
+app.use('/products', productRoute);
 

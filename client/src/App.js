@@ -13,16 +13,21 @@ import SearchResult from './components/pages/SearchResult/SearchResult';
 import SpecialOffer from './components/pages/SpecialOffer/SpecialOffer';
 import Footer from './components/views/Footer/Footer';
 import { getUser } from './redux/usersRedux';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Account from './components/pages/Account/Account';
 import Logout from './components/pages/Logout/Logout';
 import { API_URL } from './config';
-import { useState } from 'react';
+import { useEffect } from 'react';
+import { fetchBooks } from './redux/productsRedux';
 
 const App = () => {
 
   const user = useSelector(getUser)
   console.log('local user is', user)
+
+  const dispatch = useDispatch();
+
+  useEffect(() => dispatch(fetchBooks()), [dispatch])
 
   const options = {
     method: 'GET',
