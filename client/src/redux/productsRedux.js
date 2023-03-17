@@ -6,12 +6,13 @@ export const getProductById = ({ products }, productId) => products.find(product
 
 // actions
 const createActionName = actionName => `app/products/${actionName}`;
-const UPDATE_PRODUCTS = createActionName('UPDATE_BOOKS');
+const UPDATE_PRODUCTS = createActionName('UPDATE_PRODUCTS');
 
 // action creators
 export const updateProducts = payload => ({ type: UPDATE_PRODUCTS, payload });
 
-export const fetchBooks = () => {
+// thunk
+export const fetchProducts = () => {
   return (dispatch) => {
   fetch(`${API_URL}products/`)
     .then(res => res.json())
@@ -28,5 +29,4 @@ const productsReducer = (statePart = [], action) => {
       return statePart;
   };
 };
-
 export default productsReducer;

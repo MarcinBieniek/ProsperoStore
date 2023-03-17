@@ -102,12 +102,13 @@
       display: flex;
 
       .colors__text {
-        margin-top: 13px;
+        margin-top: 20px;
       }
 
       .color {
         border: none;
         background-color: inherit;
+        color: black;
 
         img {
           object-fit: cover;

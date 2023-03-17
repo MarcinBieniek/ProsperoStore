@@ -18,16 +18,20 @@ import Account from './components/pages/Account/Account';
 import Logout from './components/pages/Logout/Logout';
 import { API_URL } from './config';
 import { useEffect } from 'react';
-import { fetchBooks } from './redux/productsRedux';
+import { fetchProducts } from './redux/productsRedux';
 
 const App = () => {
+
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth' });
+  }, [])
 
   const user = useSelector(getUser)
   console.log('local user is', user)
 
   const dispatch = useDispatch();
 
-  useEffect(() => dispatch(fetchBooks()), [dispatch])
+  useEffect(() => dispatch(fetchProducts()), [dispatch])
 
   const options = {
     method: 'GET',

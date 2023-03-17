@@ -38,7 +38,7 @@ const ProductCard = (props) => {
       </div>
       <Link to={`/product/${props.id}`}>
         <img 
-          src={`${process.env.PUBLIC_URL}${props.img}`} 
+          src={`${process.env.PUBLIC_URL}${props.productImg}${props.color}.jpeg`} 
           alt="product"
         />
         <p>{props.category}</p>
