@@ -10,6 +10,10 @@ const initialState = {
 
     user: null,
 
+    favourite: {
+      products: []
+    }
+
 };  
 
 export default initialState

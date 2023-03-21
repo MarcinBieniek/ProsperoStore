@@ -1,6 +1,7 @@
 import { createStore, combineReducers, compose, applyMiddleware  } from 'redux';
 import thunk from 'redux-thunk';
 import cartReducer from './cartRedux';
+import favouriteReducer from './favouriteRedux';
 import initialState from './initialState';
 import productsReducer from './productsRedux';
 import searchReducer from './searchRedux';
@@ -11,6 +12,7 @@ const subreducers = {
   search: searchReducer,
   cart: cartReducer,
   user: userReducer,
+  favourite: favouriteReducer
 }
 
 const reducer = combineReducers(subreducers);

@@ -1,0 +1,67 @@
+@import "../../../styles/settings.scss";
+
+.container {
+  background-color: $background-gray;
+  padding: 0px 50px 50px 50px;
+
+  .menu{
+    background-color: white;
+    margin-top: 20px;
+    padding: 20px 20px 10px 30px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 31px -14px rgba(66, 68, 90, 1);
+
+    p {
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .filters {
+    background-color: white;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 31px -14px rgba(66, 68, 90, 1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .breadcrumb {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 5px;
+      
+      li {
+        padding-top: 12px;
+      }
+    
+      a {
+        text-decoration: none;
+        color: black;
+
+        &:hover{
+          color: $prospero-orange;
+        }
+      }
+    }
+
+    .filter {
+
+      select {
+       border-radius: 15px;
+       padding: 5px; 
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .container{
+    padding: 5px 5px;
+  }
+}

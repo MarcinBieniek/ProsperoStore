@@ -5,24 +5,19 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import { Link } from 'react-router-dom';
 import { deleteProduct, updateAmount, getAll } from '../../../redux/cartRedux';
 import { useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const ProductInCart = (props) => {
 
   const dispatch = useDispatch();
   const productId = props.id;
 
-  console.log('product amount', props.amount)
-
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(props.quantity || 1);
 
   const handleDelete = e => {
     e.preventDefault();
     dispatch(deleteProduct(productId))
   }
-
-  console.log('COMP - productId is', productId)
-  console.log('COMP - quantity is', quantity)
 
   const handleQuantity = (type) => {
     if(type === "dec") {
@@ -42,7 +37,7 @@ const ProductInCart = (props) => {
       <Link to={`/product/${props.id}`} className={styles.link}>
         <div className={styles.leftColumn}>
           <img 
-            src={`${process.env.PUBLIC_URL}${props.img}`} 
+            src={`${process.env.PUBLIC_URL}${props.productImg}${props.color}.jpeg`} 
             alt="Product image" 
           />
           <div className={styles.info}>

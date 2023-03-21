@@ -71,35 +71,66 @@
         display: flex;
         align-items: center;
         max-width: 80px;
-
-        .icon {
-          font-size: 40px;
-        }
-
-        .icon__cart {
-          font-size: 40px;
-          color: $prospero-orange;
-          transition: $transition;
-          cursor: pointer;
-
-          &:hover {
-            color: $prospero-light-orange;
-          }
-        }
-
-        a {
+        
+        .icons__box{
+          display: flex;
+          justify-content: center;
+          align-items: center;
           text-decoration: none; 
           color: inherit;
-        }
 
-        p {
-          margin-top: 13px;
-          padding-left: 10px;
-          transition: $transition;
-          cursor: pointer;
+          .icon__box {
+            position: relative;
 
-          &:hover {
-            color: $prospero-light-orange;
+            .icon {
+            font-size: 40px;
+            cursor: pointer;
+            
+            }
+
+            span{
+              position: absolute;
+              background-color: $prospero-orange;
+              border-radius: 30px;
+              height: 20px;
+              width: 20px;
+              left: 20px;
+              text-align: center;
+              margin-bottom: 5px;
+            }
+
+          }
+
+          .icon {
+            font-size: 40px;
+            cursor: pointer;
+          }
+
+          .icon__cart {
+            font-size: 40px;
+            color: $prospero-orange;
+            transition: $transition;
+            cursor: pointer;
+
+            &:hover {
+              color: $prospero-light-orange;
+            }
+          }
+
+          a {
+            text-decoration: none; 
+            color: inherit;
+          }
+
+          p {
+            margin-top: 13px;
+            padding-left: 10px;
+            transition: $transition;
+            cursor: pointer;
+
+            &:hover {
+              color: $prospero-light-orange;
+            }
           }
         }
 
@@ -198,6 +229,18 @@
   }
 }
 
+.modal {
+
+  button {
+    border-radius: 15px;
+
+    a {
+      text-decoration: none; 
+      color: inherit;
+    }
+  }
+}
+
 // Media queries //
 
 @media (max-width: 1200px) {
@@ -267,39 +310,41 @@
 
       .mainBar__features {
         .icons {
-          .icon {
-            font-size: 34px;
-          }
-  
-          .icon__cart {
-            font-size: 34px;
-          }
-  
-          p {
-            display: none !important; 
-          }
-  
-          .register {
-            display: none !important; 
-          }
-
-          .cart {
-            padding-left: 0px;
-  
-            span {
-              text-align: center;
-              color: white;
-
-              &:nth-child(2){
-                display: none;
-              }
+          .icons__box {
+            .icon {
+              font-size: 34px;
             }
-  
-            .amount {
-              background-color: $light-gray;
-              color: $prospero-black;
-              border-radius: 15px;
-              padding: 0px 10px;
+    
+            .icon__cart {
+              font-size: 34px;
+            }
+    
+            p {
+              display: none !important; 
+            }
+    
+            .register {
+              display: none !important; 
+            }
+
+            .cart {
+              padding-left: 0px;
+    
+              span {
+                text-align: center;
+                color: white;
+
+                &:nth-child(2){
+                  display: none;
+                }
+              }
+    
+              .amount {
+                background-color: $light-gray;
+                color: $prospero-black;
+                border-radius: 15px;
+                padding: 0px 10px;
+              }
             }
           }
         }

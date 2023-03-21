@@ -15,6 +15,10 @@
     .icons {
       .icon {
         margin-right: 5px;
+        cursor: pointer;
+      }
+      .active {
+        color: $prospero-orange;
       }
     }
 
@@ -94,6 +98,18 @@
         width: 20px;
         margin-left: 10px;
       }
+    }
+  }
+}
+
+.modal {
+
+  button {
+    border-radius: 15px;
+
+    a {
+      text-decoration: none; 
+      color: inherit;
     }
   }
 }

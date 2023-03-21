@@ -5,7 +5,7 @@
 * {
     margin: 0;
     font-family: 'Lato', sans-serif;
-    transition: all 1s ease-out;
+    //transition: all 1s ease-out;
 }
 
 button {
@@ -16,8 +16,10 @@ button {
   border-radius: 5px;
   padding: 5px 10px;
   margin-top: 5px;
+  transition: none;
 
   &:hover {
     background-color: $prospero-light-orange;
+    transition: none;
   }
 }

@@ -13,8 +13,9 @@ import { useParams } from 'react-router-dom';
 import { getProductById } from '../../../redux/productsRedux';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import {useDispatch} from 'react-redux';
+import { addProduct } from '../../../redux/cartRedux';
 
 const SingleProduct = () => {
 
@@ -22,15 +23,15 @@ const SingleProduct = () => {
     window.scrollTo({top: 0, left: 0, behavior: 'smooth' });
   }, [])
 
+  const dispatch = useDispatch();
   const productId = useParams();
   const product = useSelector(state => getProductById(state, productId.id))
 
-  const [editedProduct, setEditedProduct] = useState(product);
   const [width, setWidth] = useState(product.width);
   const [height, setHeight] = useState(product.height);
   const [color, setColor] = useState(product.color);
   const [quantity, setQuantity] = useState(product.amount);
-  console.log('color is', color)
+  const [order, setOrder] = useState(false);
 
   // color
 
@@ -50,14 +51,25 @@ const SingleProduct = () => {
 
   // add to cart
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.preventDefault();
+    dispatch(addProduct({...product, quantity, color, height, width}));
+    setOrder(true)
+
     console.log('width is', width)
     console.log('height is', height)
     console.log('color is', color)
     console.log('quantity is', quantity)
   }
 
+  // set timeout for success message
 
+  useEffect(()=>{
+    setTimeout(() => {
+      setOrder(false)
+         }, 5000);
+       },
+   [order])
 
   return (
     <Container fluid className={styles.container}>
@@ -139,7 +151,12 @@ const SingleProduct = () => {
                   <AddIcon className={styles.icon} onClick={() => handleQuantity("inc")}/>
                 </div>
               </div>
-              
+
+              {order 
+              ? <div className={styles.success}>Product added to cart!</div> 
+              : <div></div>
+              }
+
             </div>
 
           </Col>

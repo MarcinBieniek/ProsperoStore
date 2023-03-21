@@ -1,10 +1,15 @@
-import styles from './Favourite.module.scss';
+import ProductSearch from '../../views/ProductSearch/ProductsSearch';
+import { useSelector } from 'react-redux';
+import { getAll } from '../../../redux/favouriteRedux';
 
 const Favourite = () => {
 
+  const favProducts = useSelector(getAll);
+  console.log('favProducts', favProducts)
+
   return (
     <div>
-      Favourite
+      <ProductSearch props={favProducts} name={"Favourite"}/>
     </div>
   )
 }
