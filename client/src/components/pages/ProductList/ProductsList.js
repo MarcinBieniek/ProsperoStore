@@ -11,10 +11,8 @@ import { useState } from 'react';
 const ProductList = () => {
 
   const products = useSelector(allProducts);
-  console.log('products', products)
 
   const [selectedProducts, setSelectedProducts] = useState('')
-  console.log('selected products', selectedProducts)
 
   const filterCategory = (categoryItem) => {
     const result = products.filter((currentCategory) => {

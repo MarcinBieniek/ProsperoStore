@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './styles/global.scss';
 import Home from './components/pages/Home/Home';
-import ProductList from './components/pages/ProductList/ProductsList';
+import Category from './components/pages/Category/Category';
 import SingleProduct from './components/pages/SingleProduct/SingleProduct';
 import Cart from './components/pages/Cart/Cart';
 import Register from './components/pages/Register/Register';
@@ -50,7 +50,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/products/:category" element={<ProductList />} />
+        <Route path="/products/:category" element={<Category />} />
         <Route path="/product/:id" element={<SingleProduct />} />
         <Route path="/cart" element={<Cart />} />    
         <Route path="/register" element={<Register />} />

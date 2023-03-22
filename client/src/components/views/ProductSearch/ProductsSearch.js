@@ -31,7 +31,7 @@ const ProductSearch = ({props, name}) => {
             <Col>    
               <div className={styles.filters}>
                 <Breadcrumb className={styles.breadcrumb}>
-                  <Breadcrumb.Item href="/favourite">{name}</Breadcrumb.Item>
+                  <Breadcrumb.Item href="/products/garage-door">{name}</Breadcrumb.Item>
                   <Breadcrumb.Item active>Products</Breadcrumb.Item>
                 </Breadcrumb>
                 <div className={styles.filter}>
@@ -48,10 +48,9 @@ const ProductSearch = ({props, name}) => {
             </Col>  
           </Row>  
 
-          { selectedProducts ?
-
+          
             <Row xl={4} lg={3} md={2} sm={1} xs={1}>
-              {selectedProducts.map(product => 
+              {products?.map(product => 
                 <Col>
                   <ProductCard 
                     {...product}
@@ -59,19 +58,7 @@ const ProductSearch = ({props, name}) => {
                 </Col>
               )}
             </Row>
-
-            :
-
-            <Row xl={4} lg={3} md={2} sm={1} xs={1}>
-              {products.map(product => 
-                <Col>
-                  <ProductCard 
-                    {...product}
-                  />
-                </Col>
-              )}
-            </Row>
-          }
+          
        
         </Col>
       </Row>    

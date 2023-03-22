@@ -36,9 +36,9 @@ const SearchResult = () => {
                 <SearchOffIcon className={styles.icon}/>
               </div>
             :
-            <div>
-              <ProductSearch props={filteredSearch} name={"Search results"}/>
-            </div>
+              <div>
+                <ProductSearch props={filteredSearch} name={"Search results"}/>
+              </div>
           }
         </div>
       }

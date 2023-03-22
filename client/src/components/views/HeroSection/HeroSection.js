@@ -6,6 +6,7 @@ import ImageSlider from '../../features/ImageSlider/ImageSlider';
 import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
+
   return (
       <Row className={styles.container}>
         <Col md={6} >
@@ -101,15 +102,15 @@ const HeroSection = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
               >
-                <Link to="/products/windows">
+                <Link to="/products/doors">
                   <div className={styles.category}>
                     <img 
-                      src={`${process.env.PUBLIC_URL}/images/categories/windows-category.jpg`} 
-                      alt="UniPro garage door"
+                      src={`${process.env.PUBLIC_URL}/images/categories/doors-category.jpg`} 
+                      alt="Wisniowski doors"
                     />
                     <div className={styles.text}>
                       <p className={styles.paragraph}>Category</p>
-                      <h1 className={styles.headerOne}>Warm windows</h1>
+                      <h1 className={styles.headerOne}>Warm doors</h1>
                       <button>More</button>
                     </div>
                     <div className={styles.darkLayer}></div>
