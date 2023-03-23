@@ -30,14 +30,14 @@ app.use(cors({
   methods: ['POST', 'PUT', 'GET', 'OPTIONS', 'HEAD', 'DELETE'],
   credentials: true
 }))
-/* if(process.env.NODE_ENV !== 'production') {
+if(process.env.NODE_ENV !== 'production') {
   app.use(
     cors({
       origin: ['http://localhost:3000'],
       credentials: true,
     })
   );
-} */
+} 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 app.use(session({ 
@@ -45,9 +45,10 @@ app.use(session({
   store: MongoStore.create(mongoose.connection),
   resave: false,
   saveUninitialized: false,
+  /* This cause error in creating user session - no login available
   cookie: {
     secure: process.env.NODE_ENV == 'production',
-  },
+  },*/
 }));
 
 // access to storage folder
@@ -58,9 +59,11 @@ app.use(express.static(path.join(__dirname, '/public')));
 const userRoute = require('./routes/user.routes');
 const authRoute = require('./routes/auth.routes');
 const productRoute = require('./routes/products.routes');
+const orderRoute = require('./routes/order.routes');
 
 // use routes
 app.use('/api', userRoute);
 app.use('/auth', authRoute);
 app.use('/products', productRoute);
+app.use('/orders', orderRoute);
 

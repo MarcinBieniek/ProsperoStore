@@ -1,0 +1,85 @@
+@import "../../../styles/settings.scss";
+
+.container{
+  padding: 50px 50px 50px 50px;
+  background-color: $background-gray;
+
+  .user {
+    background-color: white;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+      font-size: 30px;
+      margin: 40px 0px 10px 0px;
+    }
+
+    img {
+      height: 150px;
+      width: 150px;
+      border-radius: 50%;
+      margin: 20px 0px;
+    }
+
+    button {
+      border-radius: 15px;
+      margin: 10px 0px;
+    }
+
+    .message {
+      width: 80%;
+      margin: 20px 0px;
+      background-color: $light-gray;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    p {
+      margin-bottom: 40px;
+    }
+  }
+
+  .data {
+    background-color: white;
+    height: 100%;
+
+    h1 {
+      text-align: center;
+      font-size: 30px;
+      padding: 20px 0px 40px 0px;
+    }
+
+    .list__item {
+      margin: 50px 30px;
+      padding: 10px 20px;
+      background-color: $light-gray;
+      border-radius: 15px;
+      
+      .list__firstLine {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 0px;
+
+        span{
+          display: flex;
+
+          .icon {
+            margin-right: 5px;
+          }
+        }
+      }
+
+      .list__secondLine {
+        display: flex;
+        flex-direction: column;
+
+        .product {
+          padding: 5px 0px;
+        }
+      }
+    }
+  }
+
+}

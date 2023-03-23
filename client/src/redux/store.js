@@ -6,13 +6,15 @@ import initialState from './initialState';
 import productsReducer from './productsRedux';
 import searchReducer from './searchRedux';
 import userReducer from './usersRedux';
+import ordersReducer from './ordersRedux';
 
 const subreducers = {
   products: productsReducer,
   search: searchReducer,
   cart: cartReducer,
   user: userReducer,
-  favourite: favouriteReducer
+  favourite: favouriteReducer,
+  orders: ordersReducer,
 }
 
 const reducer = combineReducers(subreducers);

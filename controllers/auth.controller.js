@@ -48,7 +48,7 @@ exports.login = async (req, res) => {
           (password === originalPassword) 
           ) {
           req.session.login = user.login;
-          req.session.save();
+          console.log('login sesszyn login', req.session.login)
 
           res.status(200).send({ message: 'Login successful' });
         } else {

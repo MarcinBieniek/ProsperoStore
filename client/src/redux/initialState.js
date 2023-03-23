@@ -12,7 +12,9 @@ const initialState = {
 
     favourite: {
       products: []
-    }
+    },
+
+    orders: [],
 
 };  
 

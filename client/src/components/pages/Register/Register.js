@@ -4,6 +4,7 @@ import { API_URL } from '../../../config';
 import axios from 'axios';
 import Spinner from 'react-bootstrap/Spinner';
 import {useNavigate} from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const Register = () => {
 
@@ -45,6 +46,7 @@ const Register = () => {
       <form className={styles.form} onSubmit={handleSubmit}>
         <h1>Registration</h1>
         <p>Fill the form and register new user</p>
+        <p>If you have an account, you can login <Link to ="/login">here</Link></p>
 
         <div className={styles.alert}>
           { status === "success" &&

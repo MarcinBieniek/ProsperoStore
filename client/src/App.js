@@ -19,6 +19,7 @@ import Logout from './components/pages/Logout/Logout';
 import { API_URL } from './config';
 import { useEffect } from 'react';
 import { fetchProducts } from './redux/productsRedux';
+import { fetchOrders } from './redux/ordersRedux';
 
 const App = () => {
 
@@ -31,7 +32,8 @@ const App = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => dispatch(fetchProducts()), [dispatch])
+  useEffect(() => dispatch(fetchProducts()), [dispatch]);
+  useEffect(() => dispatch(fetchOrders()), [dispatch]);
 
   const options = {
     method: 'GET',
@@ -41,7 +43,7 @@ const App = () => {
   fetch(`${API_URL}auth/user`, options)
     .then((response) => {
       response.json().then((data => {
-        console.log('session user is', data)
+        console.log('session user is', data.login)
       }))
     })
 
