@@ -70,23 +70,6 @@ const Navbar = () => {
             {user 
               ?
                 <div className={styles.icons}>
-                  <Link to="/compare" className={styles.icons__box}>
-                    <PublishedWithChangesIcon className={styles.icon}/> 
-                    <p>Compare Products</p>
-                  </Link>
-                </div>
-              :
-                <div className={styles.icons}>
-                  <div onClick={handleShow} className={styles.icons__box}>
-                    <PublishedWithChangesIcon className={styles.icon}/> 
-                    <p>Compare Products</p>
-                  </div>
-                </div>
-            }
-
-            {user 
-              ?
-                <div className={styles.icons}>
                   <Link to="/favourite" className={styles.icons__box}>
                     <div className={styles.icon__box}>
                       <FavoriteBorderIcon className={styles.icon}/>
@@ -157,7 +140,14 @@ const Navbar = () => {
 
         <div className={styles.menu__bar}>
           <div className={styles.menu__dropdown}>
-            MENU
+            <div className={styles.dropdown}>
+              <button className={styles.button}>MENU</button>
+              <div className={styles.content}>
+                <a href="#">PRODUCTS</a>
+                <a href="#">COMPANY</a>
+                <a href="#">CONTACT</a>
+              </div>
+            </div>
           </div>
           <div className={styles.menu__buttons}>
             <Link to="/sale">

@@ -12,14 +12,15 @@ import { getUser } from '../../../redux/usersRedux';
 import Modal from 'react-bootstrap/Modal';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 const Cart = () => {
 
+  const dispatch = useDispatch();
   const products = useSelector(getAll);
   const totalCartPrice = useSelector(getTotalPrice);
   const user = useSelector(getUser);
   const date = new Date().toLocaleDateString();
-  console.log('date is', date)
 
   // Send order to DB
   const payload = {
@@ -40,7 +41,7 @@ const Cart = () => {
       })
   }
 
-  // Order send prompt
+  // Order sent prompt
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
 

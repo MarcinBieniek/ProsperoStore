@@ -8,7 +8,6 @@ import Register from './components/pages/Register/Register';
 import Login from './components/pages/Login/Login';
 import Navbar from './components/views/Navbar/Navbar'
 import Favourite from './components/pages/Favourite/Favourite';
-import CompareProducts from './components/pages/CompareProducts/CompareProducts';
 import SearchResult from './components/pages/SearchResult/SearchResult';
 import SpecialOffer from './components/pages/SpecialOffer/SpecialOffer';
 import Footer from './components/views/Footer/Footer';
@@ -59,7 +58,6 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/favourite" element={<Favourite />} />
-        <Route path="/compare" element={<CompareProducts />} />
         <Route path="/search" element={<SearchResult />} />
         <Route path="/sale" element={<SpecialOffer />} />
         <Route path="/user/account" element={<Account />} />

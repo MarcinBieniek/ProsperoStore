@@ -3,6 +3,7 @@ import { API_URL } from '../config';
 //selectors
 export const allProducts = ({products}) => products;
 export const getProductById = ({ products }, productId) => products.find(product => product.id == productId);
+export const getSaleProducts = ({ products }) => products.filter(product => product.sale === true)
 
 // actions
 const createActionName = actionName => `app/products/${actionName}`;

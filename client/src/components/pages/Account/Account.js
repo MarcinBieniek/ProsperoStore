@@ -1,5 +1,5 @@
 import styles from './Account.module.scss';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getOrderByUsername } from '../../../redux/ordersRedux';
 import { getUser } from '../../../redux/usersRedux';
 import Row from 'react-bootstrap/Row';
@@ -9,11 +9,15 @@ import Tabs from 'react-bootstrap/Tabs';
 import PersonIcon from '@mui/icons-material/Person';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PaymentsIcon from '@mui/icons-material/Payments';
-import DeleteIcon from '@mui/icons-material/Delete';
 import HourglassBottomIcon from '@mui/icons-material/HourglassBottom';
+import { useEffect} from 'react';
+import { fetchOrders } from '../../../redux/ordersRedux';
 
 const Account = () => {
 
+  const dispatch = useDispatch()
+
+  useEffect(() => dispatch(fetchOrders()), [dispatch]);
   const username = useSelector(getUser);
   const selectedOrders = useSelector(state => getOrderByUsername(state, username.login));
 

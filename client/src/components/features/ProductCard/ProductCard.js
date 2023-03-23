@@ -1,7 +1,6 @@
 import styles from './ProductCard.module.scss';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import StarIcon from '@mui/icons-material/Star';
-import PublishedWithChangesIcon from '@mui/icons-material/PublishedWithChanges';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import DoneIcon from '@mui/icons-material/Done';
 import { Link } from 'react-router-dom';
@@ -52,13 +51,6 @@ const ProductCard = (props) => {
               <FavoriteBorderIcon className={clsx(styles.icon, favIsActive && styles.active )} onClick={handleAddToFavourite}/>
             :
               <FavoriteBorderIcon className={styles.icon} onClick={handleShow}/>
-          }
-
-          {user
-            ?
-              <PublishedWithChangesIcon className={styles.icon} onClick={handleShow}/>
-            :
-              <PublishedWithChangesIcon className={styles.icon} onClick={handleShow}/>
           }
 
         </div>
