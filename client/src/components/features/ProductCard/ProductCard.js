@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import { addProduct } from '../../../redux/cartRedux';
 import { addFavourite, deleteFavourite } from '../../../redux/favouriteRedux';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { getUser } from '../../../redux/usersRedux';
 import Modal from 'react-bootstrap/Modal';
 import clsx from 'clsx';
@@ -19,9 +19,11 @@ const ProductCard = (props) => {
 
   const [show, setShow] = useState(false);
   const [favIsActive, setFavIsActive] = useState(false);
+  const [order, setOrder] = useState(false);
 
   const handleAddToCart = (e) => {
     e.preventDefault();
+    setOrder(true)
     dispatch(addProduct(props));
   }
 
@@ -39,6 +41,13 @@ const ProductCard = (props) => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  useEffect(()=>{
+    setTimeout(() => {
+      setOrder(false)
+         }, 3000);
+       },
+   [order])
 
   return (
     <>
@@ -86,11 +95,20 @@ const ProductCard = (props) => {
         <div className={styles.price}>
           <p>${props.price}</p>
           <div className={styles.submit}>
+
+            {order 
+            ? 
             <DoneIcon className={styles.done__icon} />
+            :
+            <div></div>
+            }
+
             <button onClick={handleAddToCart}>
               Add 
               <ShoppingCartIcon className={styles.cart__icon}/>
             </button>
+
+
           </div>
         </div>
       </div>

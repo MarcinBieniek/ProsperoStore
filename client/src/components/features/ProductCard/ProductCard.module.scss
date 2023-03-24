@@ -80,23 +80,35 @@
       margin-top: 17px;
     }
 
-    button {
-      cursor: pointer;
-      border: none;
-      background-color: $prospero-orange;
-      color: white;
-      border-radius: 5px;
-      padding: 5px 10px;
-      margin-top: 5px;
+    .submit {
 
-      &:hover {
-        background-color: $prospero-light-orange;
+      .done__icon {
+        background-color: $prospero-green;
+        height: 33px;
+        width: 32px;
+        border-radius: 3px;
+        margin: 0px 3px 2px 0px;
+        color: white;
       }
 
-      .cart__icon {
-        height: 20px;
-        width: 20px;
-        margin-left: 10px;
+      button {
+        cursor: pointer;
+        border: none;
+        background-color: $prospero-orange;
+        color: white;
+        border-radius: 5px;
+        padding: 5px 10px;
+        margin-top: 5px;
+
+        &:hover {
+          background-color: $prospero-light-orange;
+        }
+
+        .cart__icon {
+          height: 20px;
+          width: 20px;
+          margin-left: 10px;
+        }
       }
     }
   }

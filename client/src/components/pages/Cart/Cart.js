@@ -16,16 +16,18 @@ import { useDispatch } from 'react-redux';
 
 const Cart = () => {
 
-  const dispatch = useDispatch();
   const products = useSelector(getAll);
   const totalCartPrice = useSelector(getTotalPrice);
   const user = useSelector(getUser);
   const date = new Date().toLocaleDateString();
 
+  console.log('user is', user)
+
   // Send order to DB
+  
   const payload = {
     products: products,
-    username: user.login,
+    username: user?.login,
     date: date,
     price: totalCartPrice
   }
@@ -36,14 +38,16 @@ const Cart = () => {
     axios
       .post(`${API_URL}orders/`, payload)
       .then(response => {
-        setShow(true)
+        setShowSend(true)
         console.log('res is', response)
       })
   }
 
   // Order sent prompt
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
+  const [showSend, setShowSend] = useState(false);
+
+  // Order error promt
+  const [error, setError] = useState(false);
 
   return (
     <>
@@ -99,7 +103,17 @@ const Cart = () => {
                 <Link to="/">
                   <button className={styles.buttonBack}>Back to store</button>
                 </Link>
+                {user !== null
+                
+                ? 
+                
                 <button className={styles.buttonOrder} onClick={sendOrder}>Order</button>
+
+                :
+
+                <button className={styles.buttonOrder} onClick={()=>setError(true)}>Order</button>
+
+                }
               </div>
             </div>
 
@@ -109,29 +123,60 @@ const Cart = () => {
       </Container>
 
       <Modal 
-        show={show} 
-        onHide={handleClose}
+        show={showSend} 
+        onHide={showSend}
         aria-labelledby="contained-modal-title-vcenter"
         centered
         className={styles.modal}
       >
-      <Modal.Header closeButton>
-        <Modal.Title>Order successfully send!</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <span>Thank You for purchase. </span><br/>
-        <span>Visit your user page and check orders history.</span>
-      </Modal.Body>
-      <Modal.Footer>
-        <button variant="primary" onClick={handleClose}>
-          <Link to="/user/account">
-            User Page
-          </Link>
-        </button>
-        <button onClick={handleClose}>
-          Close
-        </button>
-      </Modal.Footer>
+        <Modal.Header>
+          <Modal.Title>Order successfully send!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <span>Thank You for purchase. </span><br/>
+          <span>Visit your user page and check orders history.</span>
+        </Modal.Body>
+        <Modal.Footer>
+          <button variant="primary" onClick={()=>setShowSend(false)}>
+            <Link to="/user/account">
+              User Page
+            </Link>
+          </button>
+          <button onClick={()=>setShowSend(false)}>
+            Close
+          </button>
+        </Modal.Footer>
+      </Modal>
+
+      <Modal 
+        show={error} 
+        onHide={error}
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+        className={styles.modal}
+      >
+        <Modal.Header>
+          <Modal.Title>Please login</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <span>This option is available only for logged users.</span><br/>
+          <span>Register or login to proceed.</span>
+        </Modal.Body>
+        <Modal.Footer>
+          <button variant="primary" onClick={()=>setError(false)}>
+            <Link to="/register">
+              Register
+            </Link>
+          </button>
+          <button variant="primary"onClick={()=>setError(false)}>
+            <Link to="/login">
+              Login
+            </Link>
+          </button>
+          <button onClick={()=>setError(false)}>
+            Close
+          </button>
+        </Modal.Footer>
       </Modal>
     </>
   )
