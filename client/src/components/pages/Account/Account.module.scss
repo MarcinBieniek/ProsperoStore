@@ -1,7 +1,7 @@
 @import "../../../styles/settings.scss";
 
 .container{
-  padding: 50px 50px 50px 50px;
+  padding: 50px 50px 10px 50px;
   background-color: $background-gray;
 
   .user {
@@ -15,7 +15,7 @@
 
     h1 {
       font-size: 30px;
-      margin: 40px 0px 10px 0px;
+      margin: 25px 0px 10px 0px;
     }
 
     img {
@@ -28,6 +28,11 @@
     button {
       border-radius: 15px;
       margin: 10px 0px;
+      padding: 10px 20px;
+
+      span {
+        margin-left: 10px;
+      }
     }
 
     .message {
@@ -43,11 +48,201 @@
     }
   }
 
+  .orders {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      font-size: 30px;
+      margin: 25px 0px;
+    }
+  }
+
   .data {
     background-color: white;
-    height: 100%;
-    border-radius: 5px;
+    border-radius: 15px;
     box-shadow: 0px 0px 31px -14px rgba(66, 68, 90, 1);
+    margin-bottom: 30px;
+
+    .order {
+      padding: 10px 30px;
+
+      .breadcrumb {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 40px;
+      
+        li {
+          padding-top: 12px;
+        }
+      
+        a {
+          text-decoration: none;
+          color: black;
+
+          &:hover{
+            color: $prospero-orange;
+          }
+        }
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 40px;
+
+        h1 {
+          font-size: 24px;
+          margin-top: 28px;
+        }
+
+        .buttons {
+
+          .button__invoice {
+            font-size: 14px;
+            background-color: inherit;
+            color: $prospero-black;
+            border: 1px solid $strong-gray;
+            border-radius: 5px;
+            margin-right: 10px;
+
+            .icon {
+              height: 20px;
+              width: 20px;
+            }
+            span:first-of-type {
+              margin-left: 5px;
+            }
+          }
+
+          .button__track {
+            font-size: 14px;
+            background-color: inherit;
+            color: white;
+            border: 1px solid hsl(0, 1%, 71%);
+            border-radius: 5px;
+            background-color: $prospero-blue;
+
+            .icon {
+              height: 20px;
+              width: 20px;
+              margin-left: 5px;
+            }
+          }
+        }
+      }
+
+      .dates {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0px 20px 0px;
+        border-bottom: 1px solid $light-gray;
+
+        .order__date {
+          span:first-of-type {
+            color: $strong-gray;
+          }
+        }
+
+        .delivery__date {
+          color: $prospero-green;
+
+          .icon {
+            height: 20px;
+            width: 20px;
+            margin-right: 5px;
+          }
+        }
+      }
+
+      .products {
+        padding: 10px 0px;
+        border-bottom: 1px solid $light-gray;
+
+        .product {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding:10px 0px;
+
+          .left__side {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            img {
+              height: 80px;
+              width: 80px;
+              padding: 5px 0px;
+              object-fit: cover;
+            }
+
+            .description {
+              margin-left: 20px;
+              color: $prospero-black;
+
+              h2 {
+                font-size: 18px;
+              }
+
+              .details {
+
+                span {
+                  margin-right: 15px;
+                  color: $strong-gray;
+                }
+              }
+            }
+          }
+
+          .right__side {
+            display: flex;
+            flex-direction: column;
+            
+            span:last-of-type {
+              margin-top: 5px;
+              color: $strong-gray;
+            }
+          }
+        }
+      }
+
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 0px;
+
+        h2 {
+          font-size: 18px;
+          font-weight: 500;
+        }
+
+        .icon {
+          margin-left: 10px;
+        }
+
+        p {
+          font-size: 14px;
+          color: $strong-gray;
+        }
+
+        .payment {
+          width: 50%;
+
+          .price {
+            margin-top: 10px;
+          }
+        }
+
+        .address {
+          width: 50%;
+        }
+      }
+    }
 
     h1 {
       text-align: center;

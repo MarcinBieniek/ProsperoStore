@@ -82,7 +82,7 @@ const SingleProduct = () => {
       </Row>
       <div className={styles.product__container}>
         <Row>
-          <Col lg={6}>
+          <Col lg={6} g-0>
             <div className={styles.product__mainImg}>
               <img 
                 src={`${process.env.PUBLIC_URL}${product.productImg}${color}.jpeg`}                                 
@@ -91,7 +91,7 @@ const SingleProduct = () => {
             </div>
           
           </Col>
-          <Col lg={6}>
+          <Col lg={6} g-0>
             <div className={styles.product__desc}>
               <h1>{product.title}</h1>
               <h3>Producer: {product.producer}</h3>

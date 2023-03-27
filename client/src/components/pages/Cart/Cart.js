@@ -107,11 +107,11 @@ const Cart = () => {
                 
                 ? 
                 
-                <button className={styles.buttonOrder} onClick={sendOrder}>Order</button>
+                <button className={styles.buttonOrder} onClick={sendOrder}>Send order</button>
 
                 :
 
-                <button className={styles.buttonOrder} onClick={()=>setError(true)}>Order</button>
+                <button className={styles.buttonOrder} onClick={()=>setError(true)}>Send order</button>
 
                 }
               </div>
