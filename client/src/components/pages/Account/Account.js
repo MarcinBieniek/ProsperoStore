@@ -51,7 +51,6 @@ const Account = () => {
           <h1>My orders</h1>
         </div>
        
-          
           {selectedOrders.map((order, i) => 
             <div className={styles.data}>
               <div className={styles.order}>

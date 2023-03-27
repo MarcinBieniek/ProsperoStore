@@ -11,6 +11,7 @@ import { useState, useEffect } from 'react';
 import { getUser } from '../../../redux/usersRedux';
 import Modal from 'react-bootstrap/Modal';
 import clsx from 'clsx';
+import Rating from '@mui/material/Rating';
 
 const ProductCard = (props) => {
 
@@ -20,6 +21,7 @@ const ProductCard = (props) => {
   const [show, setShow] = useState(false);
   const [favIsActive, setFavIsActive] = useState(false);
   const [order, setOrder] = useState(false);
+  const [ratingValue, setRatingValue] = useState(4);
 
   const handleAddToCart = (e) => {
     e.preventDefault();
@@ -83,15 +85,30 @@ const ProductCard = (props) => {
           />
           <p>{props.category}</p>
           <h1>{props.title}</h1>
-          <div className={styles.stars}>
-            <StarIcon className={styles.star} />
-            <StarIcon className={styles.star} />
-            <StarIcon className={styles.star} />
-            <StarIcon className={styles.star} />
-            <StarIcon className={styles.star} />
-            <span> (2 reviews)</span>
-          </div>
         </Link>
+        {user 
+
+        ?
+
+          <Rating
+            name="simple-controlled"
+            value={ratingValue}
+            onChange={(event, newValue) => {
+              setRatingValue(newValue);
+            }}
+            size="small"
+          />
+
+        : 
+
+          <Rating
+            name="simple-controlled"
+            value={ratingValue}
+            onClick={handleShow}
+            size="small"
+          />
+
+        }
         <div className={styles.price}>
           <p>${props.price}</p>
           <div className={styles.submit}>
