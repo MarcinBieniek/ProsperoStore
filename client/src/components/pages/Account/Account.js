@@ -12,6 +12,7 @@ import MyLocationIcon from '@mui/icons-material/MyLocation';
 import AirplanemodeActiveIcon from '@mui/icons-material/AirplanemodeActive';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { Link } from 'react-router-dom';
 
 const Account = () => {
 
@@ -33,10 +34,13 @@ const Account = () => {
             src={`${process.env.PUBLIC_URL}/images/various/user-template.jpg`} 
             alt="User"
           />
-          <button>
-            <LogoutIcon />
-            <span>Logout</span>
-          </button>
+          <Link to="/logout">
+            <button>
+              <LogoutIcon />
+              <span>Logout</span>
+            </button>
+          </Link>
+
           <div className={styles.message}>
             <span>Welcome to your user profile. Browse orders history for more details.</span>
           </div>

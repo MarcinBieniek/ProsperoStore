@@ -97,7 +97,7 @@ const Navbar = () => {
                   { user 
                   ? 
                     <Link to="/user/account">
-                      <span>Account</span>
+                      <span>My account</span>
                     </Link>
                   :
                     <Link to="/register">
