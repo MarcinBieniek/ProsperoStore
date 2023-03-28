@@ -1,5 +1,4 @@
 import styles from './Navbar.module.scss';
-import PublishedWithChangesIcon from '@mui/icons-material/PublishedWithChanges';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -34,7 +33,7 @@ const Navbar = () => {
   const stickNavbar = () => {
     if (window !== undefined) {
       let windowHeight = window.scrollY;
-      windowHeight > 170 ? setStickyClass(true) : setStickyClass('');
+      windowHeight > 100 ? setStickyClass(true) : setStickyClass('');
     }
   };
 

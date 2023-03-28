@@ -53,7 +53,7 @@ app.use(session({
 
 // access to storage folder
 app.use(express.static(path.join(__dirname, '/client/build')));
-app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static(path.join(__dirname, '/client/public')));
 
 // import routes
 const userRoute = require('./routes/user.routes');
@@ -66,4 +66,9 @@ app.use('/api', userRoute);
 app.use('/auth', authRoute);
 app.use('/products', productRoute);
 app.use('/orders', orderRoute);
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/client/build/index.html'));
+});
+
 
