@@ -12,7 +12,7 @@ dotenv.config();
 // set app 
 const app = express();
 app.listen(process.env.PORT || 8000, () => {
-  console.log('Server is running on port 8000')
+  console.log('Server is running on port 8000', process.env.PORT)
 });
 
 // mongoDB connection 
@@ -53,7 +53,6 @@ app.use(session({
 
 // access to storage folder
 app.use(express.static(path.join(__dirname, '/client/build')));
-app.use(express.static(path.join(__dirname, '/client/public')));
 
 // import routes
 const userRoute = require('./routes/user.routes');
