@@ -11,8 +11,9 @@ dotenv.config();
 
 // set app 
 const app = express();
-app.listen(process.env.PORT || 8000, () => {
-  console.log('Server is running on port 8000', process.env.PORT)
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`)
 });
 
 // mongoDB connection 
