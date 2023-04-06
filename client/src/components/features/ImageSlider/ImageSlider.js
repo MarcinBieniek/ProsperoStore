@@ -1,6 +1,7 @@
 import styles from './ImageSlider.module.scss';
 import { useState, useRef, useEffect } from 'react';
 import { slides } from '../../../simpleData/simpleData';
+import SearchIcon from '@mui/icons-material/Search';
 
 const ImageSlider = () => {
 
@@ -46,8 +47,14 @@ const ImageSlider = () => {
               alt=""
             />
             <div className={styles.info}>
-              <h1>{slide.desc}</h1>
-              <button>{slide.action}</button>
+              <h1>{slide.title}</h1>
+              <div className={styles.summary}>
+                <span>{slide.desc}</span>
+                <button>
+                  <SearchIcon className={styles.icon}/>
+                  {slide.action}
+                </button>
+              </div>
             </div>
           </div>
         ))}

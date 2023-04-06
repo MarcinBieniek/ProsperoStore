@@ -21,7 +21,6 @@ const HeroSection = () => {
             </div>
           </motion.div>
         </Col>
-
         <Col md={6} className={styles.categories}>
           <Row className={styles.categories__row}>
             <Col md={6}>
@@ -34,12 +33,12 @@ const HeroSection = () => {
                 <Link to="/products/sectional-doors">
                   <div className={styles.category}>
                     <img 
-                      src={`${process.env.PUBLIC_URL}/images/categories/unipro-category.jpg`} 
+                      src={`${process.env.PUBLIC_URL}/images/categories/1.png`} 
                       alt="UniPro garage door"
                     />
                     <div className={styles.text}>
                       <p className={styles.paragraph}>Category</p>
-                      <h1 className={styles.headerOne}>Home garage doors</h1>      
+                      <h1 className={styles.headerOne}>Garage doors</h1>      
                       <button>More</button>
                     </div>
                     <div className={styles.darkLayer}></div>
@@ -57,7 +56,7 @@ const HeroSection = () => {
                 <Link to="/products/sectional-doors">
                   <div className={styles.category}>
                     <img 
-                      src={`${process.env.PUBLIC_URL}/images/categories/makropro-category.jpg`} 
+                      src={`${process.env.PUBLIC_URL}/images/categories/2.png`} 
                       alt="MakroPro garage door"
                     />
                     <div className={styles.text}>
@@ -82,7 +81,7 @@ const HeroSection = () => {
                 <Link to="/products/fences">
                   <div className={styles.category}>
                     <img 
-                      src={`${process.env.PUBLIC_URL}/images/categories/fences-category.jpg`} 
+                      src={`${process.env.PUBLIC_URL}/images/categories/3.png`} 
                       alt="UniPro garage door"
                     />
                     <div className={styles.text}>

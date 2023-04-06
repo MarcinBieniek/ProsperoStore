@@ -10,7 +10,9 @@
   }
 
   .categories {
+
     .categories__row {
+    
       .category {
         margin: 10px 0px;
         height: 165px;
@@ -37,7 +39,7 @@
           z-index: 1;
           top: 25%;
           left: 25px;
-          background-color: rgba(0,0,0,0.4);
+          background-color: rgba(0,0,0,0.6);
           padding: 5px 10px;
           border-radius: 15px;
 
@@ -77,9 +79,18 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 922px) {
   .container{
     padding: 0px 5px;
+    .categories {
+      .categories__row {
+        .category {
+          .text {
+            left: 5px;
+          }
+        }
+      }
+    }
   }
 }
 

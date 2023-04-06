@@ -1,14 +1,16 @@
 export const slides = [
   {
     id: 1,
-    img: 'slide3.jpg',
-    desc: 'Wisniowski - best solution for home',
+    img: 'slide4.png',
+    title: 'Create home',
+    desc: "Gates, doors, fences and more!",
     action: 'See our offer'
   },
   {
     id: 2,
-    img: 'slide2.jpg',
-    desc: 'Safe transport to all EU countries',
+    img: 'slide5.png',
+    title: 'Safe UE transport',
+    desc:  "Ask for best delivery price!",
     action: 'More details'
   },
 ]
@@ -16,8 +18,8 @@ export const slides = [
 export const categoriesBoxes = [
   {
     id: 1,
-    title: 'Home garage doors',
-    img: 'uniPro-category.jpg'
+    title: 'Garage doors',
+    img: 'unipro-category.jpg'
   },
   {
     id: 2,
