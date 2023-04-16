@@ -1,14 +1,12 @@
 ## Description
 
-E-commerce service with gates, doors and fences. Build from scratch with MERN stack. Store allows to: register new user, personalize products, create order in cart, send order, browse orders list in user page and more.
-
-Project still in development. Next step: setting online payment and building admin panel.
+E-commerce service offering gates, doors and fences for home and industry. Build from scratch with MERN stack. Store allows to: register new users, personalize products, search products, create orders in the cart, send orders, browse order lists in the user page and more. The project is still in development. Next step: setting up online payments and creating an admin panel.
 
 ## Demo
 
-Live demo: [prosperostore.marcinbieniek.repl.co](https://prosperostore.marcinbieniek.repl.co/)
+Live demo: [prospero-store.herokuapp.com](https://prospero-store.herokuapp.com/)
 
-Thank You for taking Your time and checking out my project.
+Thank you for taking your time and checking out my project.
 
 ## Running the app
 
