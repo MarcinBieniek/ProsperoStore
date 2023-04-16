@@ -16,13 +16,17 @@ import { Link } from 'react-router-dom';
 
 const Account = () => {
 
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth' });
+  }, [])
+
   const dispatch = useDispatch()
 
   useEffect(() => dispatch(fetchOrders()), [dispatch]);
   const username = useSelector(getUser);
   const selectedOrders = useSelector(state => getOrderByUsername(state, username.login));
 
-  console.log('sel orders is', selectedOrders)
+  
 
   return (
     <Row className={styles.container}>

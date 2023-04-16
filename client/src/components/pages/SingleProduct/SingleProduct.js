@@ -4,15 +4,12 @@ import Col from 'react-bootstrap/Col';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import PublishedWithChangesIcon from '@mui/icons-material/PublishedWithChanges';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import EmailIcon from '@mui/icons-material/Email';
 import { Container } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getProductById } from '../../../redux/productsRedux';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
 import { useState, useEffect } from 'react';
 import {useDispatch} from 'react-redux';
 import { addProduct } from '../../../redux/cartRedux';
@@ -30,7 +27,6 @@ const SingleProduct = () => {
   const [width, setWidth] = useState(product.width);
   const [height, setHeight] = useState(product.height);
   const [color, setColor] = useState(product.color);
-  const [quantity, setQuantity] = useState(product.amount);
   const [order, setOrder] = useState(false);
 
   // color
@@ -39,27 +35,12 @@ const SingleProduct = () => {
     setColor(col)
   }
 
-  // amount 
-
-  const handleQuantity = (type) => {
-    if(type === "dec") {
-      quantity > 1 && setQuantity(quantity - 1)
-    } else {
-      quantity < 10 && setQuantity(quantity + 1)
-    }
-  }
-
   // add to cart
 
   const handleClick = (e) => {
     e.preventDefault();
-    dispatch(addProduct({...product, quantity, color, height, width}));
+    dispatch(addProduct({...product, color, height, width}));
     setOrder(true)
-
-    console.log('width is', width)
-    console.log('height is', height)
-    console.log('color is', color)
-    console.log('quantity is', quantity)
   }
 
   // set timeout for success message
@@ -97,64 +78,46 @@ const SingleProduct = () => {
               <h3>Producer: {product.producer}</h3>
               <p>${product.price} (23% VAT)</p>
 
-              {product.category !== "Accessories" 
+              {product.category !== "Accessories" &&
+                <>
+                  <div className={styles.size}>
+                    <h2 className={styles.size__text}>Select width: </h2>
+                    <select className={styles.select} onChange={(e) => setWidth(e.target.value)}>
+                      <option className={styles.option} value={product.width}>{product.width} cm</option>
+                      <option className={styles.option} value="260">260 cm</option>
+                      <option className={styles.option} value="275">275 cm</option> 
+                      <option className={styles.option} value="300">300 cm</option> 
+                      <option className={styles.option} value="325">325 cm</option> 
+                    </select> 
+                  </div>
+                  <div className={styles.size}>
+                    <h2 className={styles.size__text}>Select height: </h2>
+                    <select className={styles.select} onChange={(e) => setHeight(e.target.value)}>
+                      <option className={styles.option} value={product.height}>{product.height} cm</option>
+                      <option className={styles.option} value="230">230 cm</option>
+                      <option className={styles.option} value="237">237 cm</option> 
+                      <option className={styles.option} value="250">250 cm</option> 
+                      <option className={styles.option} value="325">325 cm</option> 
+                    </select> 
+                  </div>
 
-              ?
+                  <div className={styles.colors}>
+                    <h2 className={styles.colors__text}>Select color:</h2>
 
-              <>
-                <div className={styles.size}>
-                  <h2 className={styles.size__text}>Select width: </h2>
-                  <select className={styles.select} onChange={(e) => setWidth(e.target.value)}>
-                    <option className={styles.option} value={product.width}>{product.width} cm</option>
-                    <option className={styles.option} value="260">260 cm</option>
-                    <option className={styles.option} value="275">275 cm</option> 
-                    <option className={styles.option} value="300">300 cm</option> 
-                    <option className={styles.option} value="325">325 cm</option> 
-                  </select> 
-                </div>
-                <div className={styles.size}>
-                  <h2 className={styles.size__text}>Select height: </h2>
-                  <select className={styles.select} onChange={(e) => setHeight(e.target.value)}>
-                    <option className={styles.option} value={product.height}>{product.height} cm</option>
-                    <option className={styles.option} value="230">230 cm</option>
-                    <option className={styles.option} value="237">237 cm</option> 
-                    <option className={styles.option} value="250">250 cm</option> 
-                    <option className={styles.option} value="325">325 cm</option> 
-                  </select> 
-                </div>
-
-                <div className={styles.colors}>
-                  <h2 className={styles.colors__text}>Select color:</h2>
-
-                    {product.availableColors.map((c) => (
-                      <button className={styles.color} onClick={() => handleSetColor(c)}>
-                        <img 
-                          src={`${process.env.PUBLIC_URL}/images/colors/${c}.jpeg`}
-                          alt="Main photo"
-                        /> 
-                      </button>
-                    ))}
-                </div>
-              </>
-
-              :
-
-              <div></div>
-
+                      {product.availableColors.map((c) => (
+                        <button className={styles.color} onClick={() => handleSetColor(c)}>
+                          <img 
+                            src={`${process.env.PUBLIC_URL}/images/colors/${c}.jpeg`}
+                            alt="Main photo"
+                          /> 
+                        </button>
+                      ))}
+                  </div>
+                </>
               }
 
-              <div className={styles.quantity}>
-                <h2>Quantity:</h2>
-                <div className={styles.counter}>
-                  <RemoveIcon className={styles.icon} onClick={() => handleQuantity("dec")}/>
-                  <span>{quantity}</span>
-                  <AddIcon className={styles.icon} onClick={() => handleQuantity("inc")}/>
-                </div>
-              </div>
-
-              {order 
-              ? <div className={styles.success}>Product added to cart!</div> 
-              : <div></div>
+              {order &&
+                <div className={styles.success}>Product added to cart!</div> 
               }
 
             </div>
@@ -166,17 +129,17 @@ const SingleProduct = () => {
             <div className={styles.leftColumn}>
               <div className={styles.leftSide}>
                 <SupportAgentIcon className={styles.icon}/>
-                <div className={styles.infoBox}>
+                <a href="tel:123-456-7890" className={styles.infoBox}>
                   <h3>Need help?</h3>
                   <p>Call us!</p>
-                </div>
+                </a>
               </div>
               <div className={styles.rightSide}>
                 <EmailIcon className={styles.icon}/>
-                <div className={styles.infoBox}>
+                <a href="mailto:contact@wp.pl" className={styles.infoBox}>
                   <h3>Need a project?</h3>
                   <p>Send us message!</p>
-                </div>
+                </a>
               </div>
             </div>
           </Col>
@@ -188,7 +151,6 @@ const SingleProduct = () => {
               </button>
               <div className={styles.icons}>
                 <FavoriteBorderIcon className={styles.icon}/>
-                <PublishedWithChangesIcon className={styles.icon}/>
               </div>
             </div>
           </Col>

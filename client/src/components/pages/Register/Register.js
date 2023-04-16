@@ -5,8 +5,13 @@ import axios from 'axios';
 import Spinner from 'react-bootstrap/Spinner';
 import {useNavigate} from "react-router-dom";
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const Register = () => {
+
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth' });
+  }, [])
 
   const navigate = useNavigate()
 

@@ -12,9 +12,13 @@ import { getUser } from '../../../redux/usersRedux';
 import Modal from 'react-bootstrap/Modal';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 const Cart = () => {
+
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth' });
+  }, [])
 
   const products = useSelector(getAll);
   const totalCartPrice = useSelector(getTotalPrice);

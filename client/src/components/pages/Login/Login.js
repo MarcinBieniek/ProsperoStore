@@ -5,8 +5,13 @@ import { API_URL } from '../../../config';
 import { useDispatch } from 'react-redux';
 import { logIn } from '../../../redux/usersRedux';
 import {useNavigate} from "react-router-dom";
+import { useEffect } from 'react';
 
 const Login = () => {
+
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth' });
+  }, [])
 
   const navigate = useNavigate();
 
@@ -54,6 +59,7 @@ const Login = () => {
       <form className={styles.form} onSubmit={handleSubmit}>
         <h1>Sign in</h1>
         <p>Login to the page</p>
+        <p>For demo access use: JohnDoe / admin1</p>
 
         <div className={styles.alert}>
           { status === "success" &&

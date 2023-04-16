@@ -5,8 +5,13 @@ import { allProducts } from '../../../redux/productsRedux';
 import ProductSearch from '../../views/ProductSearch/ProductsSearch';
 import ManageSearchIcon from '@mui/icons-material/ManageSearch';
 import SearchOffIcon from '@mui/icons-material/SearchOff';
+import { useEffect } from 'react';
 
 const SearchResult = () => {
+
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth' });
+  }, [])
 
   const search = useSelector(searchInputValue);
 

@@ -27,7 +27,6 @@ const App = () => {
   }, [])
 
   const user = useSelector(getUser)
-  console.log('local user is', user)
 
   const dispatch = useDispatch();
 
