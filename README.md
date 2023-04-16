@@ -1,6 +1,6 @@
 ## Description
 
-E-commerce service offering gates, doors and fences for home and industry. Build from with MERN stack (frontend and backend), full RWD. Store allows to: register new users, personalize products, search products, create orders in the cart, send orders, browse order lists in the user page and more. The project is still in development. Next step: setting up online payments and creating an admin panel.
+E-commerce service offering gates, doors and fences for home and industry. Build with MERN stack (frontend and backend), full RWD. Store allows to: register new users, personalize products, search products, create orders in the cart, send orders, browse order lists in the user page and more. The project is still in development. Next step: setting up online payments and creating an admin panel.
 
 ## Demo
 
